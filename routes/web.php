@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'homePage'])->name('homePage');
 
 Route::get('/contact-us', [ContactController::class, 'contactPage'])->name('contactPage');
+Route::post('/contact-us', [ContactController::class, 'submitFrom']);
 
 Route::get('/blogs', [BlogController::class, 'blogPage'])->name('blogPage');
 
