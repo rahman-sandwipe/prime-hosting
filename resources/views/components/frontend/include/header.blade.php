@@ -74,12 +74,7 @@
 
             <div class="header-widget-group">
                 <div class="header-profile">
-                    <a href="#" class="header-user"><img src="https://dummyimage.com/60x60" alt="user"><span>join</span><i class="fas fa-chevron-down"></i></a>
-                    <ul class="user-dropdown">
-                        <li><a href="login.html"><i class="fas fa-unlock"></i>login</a></li>
-                        <li><a href="register.html"><i class="fas fa-user-edit"></i>register</a></li>
-                        <li><a href="forgot-password.html"><i class="fas fa-question-circle"></i>forgot password</a></li>
-                    </ul>
+                    <a href="" class="btn btn-light br-5">Clientarea</a>
                 </div>
                 <div class="header-widget"><a href="cartlist.html" class="header-cart"><i class="flaticon-shopping-bag"></i><sup>0</sup></a><button class="header-menu"><i class="flaticon-align-right"></i></button></div>
             </div>
