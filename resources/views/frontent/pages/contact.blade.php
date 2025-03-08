@@ -16,14 +16,14 @@
 		</section>
         <section class="contact-part">
             <div class="container">
-                @include('components.frontend.contact.contact-section')
+                @include('components.frontent.contact.contact-section')
 
-                @include('components.frontend.contact.map-form-section')
+                @include('components.frontent.contact.map-form-section')
             </div>
         </section>
     </main>
 @endsection
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('frontend/css/contact.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontent/css/contact.css') }}">
 @endsection

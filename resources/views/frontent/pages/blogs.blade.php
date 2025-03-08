@@ -15,14 +15,14 @@
 </section>
 <section class="bloglist-part section-ptb-100">
     <div class="container">
-        @include('components.frontend.blog.filter-section')
+        @include('components.frontent.blog.filter-section')
 
-        @include('components.frontend.blog.blog-section')
+        @include('components.frontent.blog.blog-section')
 
-        @include('components.frontend.blog.pagination-section')
+        @include('components.frontent.blog.pagination-section')
     </div>
 </section>
 @endsection
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('frontend/css/blog-list.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontent/css/blog-list.css') }}">
 @endsection
