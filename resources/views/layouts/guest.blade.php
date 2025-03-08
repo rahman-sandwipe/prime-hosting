@@ -18,64 +18,14 @@
 		<link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        @include('components.frontend.top-header')
+        @include('components.frontend.include.top-header')
 		
-        @include('components.frontend.header')
+        @include('components.frontend.include.header')
 
-		@include('components.frontend.home.hero-section')
-
-		
-		@include('components.frontend.home.about-section')
-
-
-		@include('components.frontend.home.info-section')
-		
-		
-		@include('components.frontend.home.support-section')
-
-
-		@include('components.frontend.home.service-section')
-		
-		
-		@include('components.frontend.home.feature-section')
-		
-		
-		@include('components.frontend.home.price-section')
-
-
-		@include('components.frontend.home.testimonials-section')
-
-
-		<div class="container section-mb-120">
-			<div class="clients-slider">
-				<a href="#">
-					<img src="images/client/01.png" alt="client">
-				</a>
-				<a href="#">
-					<img src="images/client/02.png" alt="client">
-				</a>
-				<a href="#">
-					<img src="images/client/03.png" alt="client">
-				</a>
-				<a href="#">
-					<img src="images/client/04.png" alt="client">
-				</a>
-				<a href="#">
-					<img src="images/client/05.png" alt="client">
-				</a>
-			</div>
-		</div>
-
-		<section class="call2action-part">
-			<div class="container">
-				<h2>want to get achieve your ideas online?</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit ncidunt neque atque cum nulla temporibus cupiditate excepturi quibusdam magni beatae mollitia</p>
-				<a href="pricing-plan.html" class="btn btn-inline"><i class="fas fa-external-link-alt"></i><span>get started</span></a>
-			</div>
-		</section>
+		@yield('content')
 
         <!-- Footer -->
-        @include('components.frontend.footer')
+        @include('components.frontend.include.footer')
 
         <script src="{{ asset('frontend/vendor/bootstrap/jquery-1.12.4.min.js') }}"></script>
 		<script src="{{ asset('frontend/vendor/bootstrap/popper.min.js') }}"></script>
@@ -86,6 +36,7 @@
 		<script src="{{ asset('frontend/vendor/venobox/venobox-call.js') }}"></script>
 		<script src="{{ asset('frontend/vendor/niceselect/niceselect.min.js') }}"></script>
 		<script src="{{ asset('frontend/js/main.js') }}"></script>
-		<script src="{{ asset('frontend/js/secure.js') }}"></script>
+		{{-- <script src="{{ asset('frontend/js/secure.js') }}"></script> --}}
+		@yield('styles')
     </body>
 </html>
