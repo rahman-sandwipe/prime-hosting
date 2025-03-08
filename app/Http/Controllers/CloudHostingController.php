@@ -8,6 +8,6 @@ use Illuminate\View\View;
 class CloudHostingController extends Controller
 {
     public function cloudHostingPage() : View {
-        return view('frontend.pages.cloud-hosting');
+        return view('frontent.pages.cloud-hosting');
     }
 }

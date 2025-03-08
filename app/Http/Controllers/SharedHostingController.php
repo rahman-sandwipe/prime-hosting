@@ -8,6 +8,6 @@ use Illuminate\View\View;
 class SharedHostingController extends Controller
 {
     public function sharedHostingPage() : View{
-        return view('frontend.pages.shared-hosting');
+        return view('frontent.pages.shared-hosting');
     }
 }

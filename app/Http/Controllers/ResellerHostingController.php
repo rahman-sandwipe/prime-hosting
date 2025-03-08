@@ -8,6 +8,6 @@ use Illuminate\View\View;
 class ResellerHostingController extends Controller
 {
     public function resellerHostingPage() : View {
-        return view('frontend.pages.reseller-hosting');
+        return view('frontent.pages.reseller-hosting');
     }
 }

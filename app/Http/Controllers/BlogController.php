@@ -8,6 +8,6 @@ use Illuminate\View\View;
 class BlogController extends Controller
 {
     public function blogPage() : View {
-        return view('frontend.pages.blogs');
+        return view('frontent.pages.blogs');
     }
 }

@@ -1,10 +1,10 @@
-@extends('layouts.guest')
+@extends('frontent.guest')
 @section('content')
 <section class="single-banner">
-    <h1>reseller hosting</h1>
+    <h1>shared hosting</h1>
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">reseller hosting</li>
+        <li class="breadcrumb-item"><a href="{{ route('homePage') }}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">shared hosting</li>
     </ol>
 </section>
 <section class="compare-part section-ptb-100 section-mb-100">

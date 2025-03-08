@@ -8,6 +8,6 @@ use Illuminate\View\View;
 class ContactController extends Controller
 {
     public function contactPage() : View {
-        return view('frontend.pages.contact');
+        return view('frontent.pages.contact');
     }
 }

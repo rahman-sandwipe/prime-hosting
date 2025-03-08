@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('frontent.guest')
 @section('content')
 <section class="single-banner">
     <h1>cloud hosting</h1>

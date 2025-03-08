@@ -14,12 +14,17 @@
                         <h2>Welcome!</h2>
                         <p>Use your credentials to access</p>
                     </div>
-                    <form class="user-form">
-                        <div class="form-group"><input type="email" class="form-control" placeholder="Enter your email"></div>
-                        <div class="form-group"><input type="password" class="form-control" placeholder="Enter your password"></div>
+                    <form class="user-form" method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                        </div>
                         <div class="form-button">
-                            <button type="submit">login</button>
-                            <p>Forgot your password?<a href="{{ route('password.request') }}">reset here</a></p>
+                            <button type="submit">Login</button>
+                            <p>Forgot your password? <a href="{{ route('password.request') }}">Reset here</a></p>
                         </div>
                     </form>
                 </div>

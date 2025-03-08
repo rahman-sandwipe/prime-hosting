@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('frontent.guest')
 @section('content')
     <main>
         <section class="single-banner">
