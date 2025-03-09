@@ -8,6 +8,6 @@ use Illuminate\View\View;
 class HomeController extends Controller
 {
     public function homePage() : View {
-        return view('frontent.pages.home');
+        return view('frontend.pages.home');
     }
 }

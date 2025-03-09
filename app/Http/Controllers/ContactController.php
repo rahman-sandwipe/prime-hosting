@@ -9,7 +9,7 @@ use Illuminate\View\View;
 class ContactController extends Controller
 {
     public function contactPage() : View {
-        return view('frontent.pages.contact');
+        return view('frontend.pages.contact');
     }
 
     public function submitFrom(Request $request) {

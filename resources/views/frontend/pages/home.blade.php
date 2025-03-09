@@ -1,28 +1,28 @@
-@extends('frontent.guest')
+@extends('frontend.guest')
 @section('content')
     <main>
-        @include('components.frontent.home.hero-section')
+        @include('components.frontend.home.hero-section')
 
 		
-		@include('components.frontent.home.about-section')
+		@include('components.frontend.home.about-section')
 
 
-		@include('components.frontent.home.info-section')
+		@include('components.frontend.home.info-section')
 		
 		
-		@include('components.frontent.home.support-section')
+		@include('components.frontend.home.support-section')
 
 
-		@include('components.frontent.home.service-section')
+		@include('components.frontend.home.service-section')
 		
 		
-		@include('components.frontent.home.feature-section')
+		@include('components.frontend.home.feature-section')
 		
 		
-		@include('components.frontent.home.price-section')
+		@include('components.frontend.home.price-section')
 
 
-		@include('components.frontent.home.testimonials-section')
+		@include('components.frontend.home.testimonials-section')
 
 
 		<div class="container section-mb-120">

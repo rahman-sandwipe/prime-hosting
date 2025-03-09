@@ -1,4 +1,4 @@
-@extends('frontent.guest')
+@extends('frontend.guest')
 @section('content')
 <section class="single-banner">
     <h1>shared hosting</h1>

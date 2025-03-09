@@ -30,7 +30,7 @@ h6 {
 	--border: #e8e8e8;
 	--heading: #39404a;
 	--primary: #03a160;
-	--primary-deep: #55188a;
+	--primary-deep: #015331;
 	--primary-light: #ddaaff;
 	--primary-chalk: #f7fbff;
 	--gradient: linear-gradient(to right, #03a160, #023d24);
@@ -1734,7 +1734,7 @@ body {
 }
 
 .single-banner {
-	background: url(../images/single-banner.jpg);
+	background: var(--primary-deep);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -2503,7 +2503,7 @@ body {
 	min-width: 180px;
 	max-width: 200px;
 	color: var(--white);
-	background: var(--dark);
+	background: var(--primary);
 	box-shadow: var(--primary-bshadow);
 	transition: all linear .3s;
 	-webkit-transition: all linear .3s;
@@ -3333,7 +3333,7 @@ body {
 
 .footer-part {
 	padding: 100px 0px 0px;
-	background: var(--dark)
+	background: var(--primary-deep)
 }
 
 .footer-brand a img {
@@ -3411,7 +3411,7 @@ body {
 	margin-top: 75px;
 	margin-bottom: 55px;
 	padding-bottom: 45px;
-	border-bottom: 1px solid var(--primary-deep)
+	border-bottom: 1px solid var(--primary)
 }
 
 .footer-widget h5 {
@@ -3420,7 +3420,7 @@ body {
 	padding-bottom: 15px;
 	position: relative;
 	text-transform: uppercase;
-	border-bottom: 1px solid var(--primary-deep)
+	border-bottom: 1px solid var(--primary)
 }
 
 .footer-widget h5::before {
@@ -3544,7 +3544,7 @@ body {
 .footer-bottom {
 	margin-top: 60px;
 	padding: 15px 0px;
-	background: #0d0633
+	background: var(--primary)
 }
 
 .footer-bottom .container {
