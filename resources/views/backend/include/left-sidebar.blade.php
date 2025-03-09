@@ -33,8 +33,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="icons-materialdesign.html">Hosting Plans</a></li>
-                        <li><a href="icons-dripicons.html">Add New</a></li>
+                        <li><a href="{{ route('HostingPlaneList') }}">Hosting Plans</a></li>
+                        <li><a href="{{ route('HostingPlaneFrom') }}">Add New</a></li>
                     </ul>
                 </li>
 

@@ -33,3 +33,4 @@ Route::get('reseller-hosting', [ResellerHostingController::class, 'resellerHosti
 
 
 require __DIR__.'/auth.php';
+require __DIR__.'/api.php';
