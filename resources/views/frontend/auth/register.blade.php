@@ -1,4 +1,5 @@
-@extends('layouts.guest')
+@extends('frontend.guest')
+@section('title', 'Registration')
 @section('content')
 <section class="user-form-part">
     <div class="container">
