@@ -56,16 +56,27 @@
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
+        
         <!-- Vendor js -->
         <script src="{{ asset('backend/js/vendor.min.js') }}"></script>
 
-         <!-- Chart JS -->
-         <script src="{{ asset('backend/libs/chart-js/Chart.bundle.min.js') }}"></script>
+        <!-- Table Editable plugin-->
+        <script src="{{ asset('backend/libs/jquery-tabledit/jquery.tabledit.min.js') }}"></script>
+        
+        <!-- Table editable init-->
+        <script src="{{ asset('backend/js/pages/tabledit.init.js') }}"></script>
+        
+        <!-- Chart JS -->
+        <script src="{{ asset('backend/libs/chart-js/Chart.bundle.min.js') }}"></script>
 
-          <!-- Init js -->
+        <!-- Init js -->
         <script src="{{ asset('backend/js/pages/dashboard.init.js') }}"></script>
 
         <!-- App js -->
         <script src="{{ asset('backend/js/app.min.js') }}"></script>
+        
+
+        @yield('scripts')
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </body>
 </html>

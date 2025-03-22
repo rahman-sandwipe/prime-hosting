@@ -25,6 +25,29 @@
                         <li><a href="ui-cards.html">Add New</a></li>
                     </ul>
                 </li>
+                
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="fa fa-list"></i>
+                        <span>Attributes</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{ route('AttributesPage') }}">Attributes</a></li>
+                        <li><a href="{{ route('insertAttributePage') }}">Insert New</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="fa fa-list"></i>
+                        <span>Categories</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{ route('getCategories') }}">Categories</a></li>
+                        <li><a href="{{ route('insertCategory') }}">Insert New</a></li>
+                    </ul>
+                </li>
 
                 <li>
                     <a href="javascript: void(0);">

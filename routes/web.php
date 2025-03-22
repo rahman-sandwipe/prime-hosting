@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\CategoryController;
+
+
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CloudHostingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DomainPricingController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterDomainController;
 use App\Http\Controllers\ResellerDomainController;
 use App\Http\Controllers\ResellerHostingController;
@@ -30,6 +33,18 @@ Route::get('cloud-hosting', [CloudHostingController::class, 'cloudHostingPage'])
 Route::get('shared-hosting', [SharedHostingController::class, 'sharedHostingPage'])->name('sharedHostingPage');
 Route::get('reseller-hosting', [ResellerHostingController::class, 'resellerHostingPage'])->name('resellerHostingPage');
 
+
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('attributes',                        [AttributeController::class,'AttributesPage'])->name('AttributesPage');
+    Route::get('insert-attribute',                  [AttributeController::class,'insertAttributePage'])->name('insertAttributePage');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('categories',                        [CategoryController::class,'getCategories'])->name('getCategories');
+    Route::get('insert-category',                   [CategoryController::class,'insertCategory'])->name('insertCategory');
+    Route::get('modify-category/{categoryID}',      [CategoryController::class,'modifyCategory'])->name('modifyCategory');
+});
 
 
 require __DIR__.'/auth.php';

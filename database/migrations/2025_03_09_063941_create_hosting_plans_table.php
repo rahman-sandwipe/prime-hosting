@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('hosting_plans', function (Blueprint $table) {
-            $table->id('plan_id');
+            $table->id('planID');
             $table->string('plan_name')->unique();
-            $table->enum('plane_category', ['Cloud Hosting','Shared Hosting','Reseller Hosting'])->nullable();
-            $table->text('description');
+            $table->string('plan_slug')->unique();
+            $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
             $table->string('disk_space');
             $table->string('bandwidth');
@@ -25,6 +25,19 @@ return new class extends Migration
             $table->integer('ftp_accounts');
             $table->integer('database_limit');
             $table->boolean('ssl_certificate')->default(false);
+            $table->string('btnLink');
+            
+            $table->unsignedBigInteger('categoryID')->notNullable();
+            $table->unsignedBigInteger('userID')->notNullable();
+            $table->unsignedBigInteger('attributes')->nullable();
+
+            $table->foreign('categoryID')->references('categoryID')->on('hosting_categories')
+            ->restrictOnDelete()->restrictOnUpdate();
+            $table->foreign('userID')->references('authID')->on('users')
+            ->restrictOnDelete()->restrictOnUpdate();
+            $table->foreign('attributes')->references('attributeID')->on('hosting_attributes')
+            ->restrictOnDelete()->restrictOnUpdate();
+            
             $table->timestamps();
         });
     }
