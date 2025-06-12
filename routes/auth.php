@@ -1,70 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Auth\PasswordController;
-use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Admin\HostingPlanController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
-Route::prefix('admin')->middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('register', [RegisteredUserController::class, 'store']);
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\AttributeController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\HostingPackageController;
+use App\Http\Controllers\Admin\SupportTicketController;
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
-
-    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])->name('password.request');
-    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])->name('password.email');
-
-    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])->name('password.reset');
-    Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
+Route::prefix('/admin')->middleware('auth')->group(function () {
+    Route::get('/dashboard',        [DashboardController::class,'DashboardPage'])->name('dashboardPage');
+    Route::get('/users',            [UserController::class,'UsersPage'])->name('usersPage');
+    Route::get('/attributes',       [AttributeController::class,'AttributesPage'])->name('attributesPage');
+    Route::get('/hosting-packages', [HostingPackageController::class,'HostingPage'])->name('hostingPage');
+    Route::get('/orders',           [OrderController::class, 'OrdersPage'])->name('ordersPage');
+    Route::get('/peyments',         [PaymentController::class, 'PaymentsPage'])->name('paymentsPage');
+    Route::get('/support-tracker',  [SupportTicketController::class, 'SupportTrackerPage'])->name('supportTrackerPage');
+    Route::get('/logout',           [DashboardController::class, 'destroy'])->name('logout');
 });
-
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::get('/hosting-plane-list',       [HostingPlanController::class, 'HostingPlaneList'])->name('HostingPlaneList');
-    Route::get('/hosting-plane-add',        [HostingPlanController::class, 'HostingPlaneFrom'])->name('HostingPlaneFrom');
-
-
-
-
-
-
-
-
-
-    Route::get('verify-email', EmailVerificationPromptController::class)
-        ->name('verification.notice');
-
-    Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
-        ->middleware(['signed', 'throttle:6,1'])
-        ->name('verification.verify');
-
-    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware('throttle:6,1')
-        ->name('verification.send');
-
-    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->name('password.confirm');
-
-    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
-
-    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
-
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-    
-    Route::get('dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
-    
-
-
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::get('/dashboard', [DashboardController::class,'DashboardPage'])->name('dashboard');

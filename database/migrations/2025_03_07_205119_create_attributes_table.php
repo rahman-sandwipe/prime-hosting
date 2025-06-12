@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('attributes', function (Blueprint $table) {
-            $table->id('attributeID');
+            $table->id();
             $table->string('attribute_name')->unique();
             $table->string('attribute_slug')->unique();
             $table->timestamps();
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hosting_attributes');
+        Schema::dropIfExists('attributes');
     }
 };

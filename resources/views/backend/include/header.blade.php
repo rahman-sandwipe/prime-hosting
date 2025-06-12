@@ -113,7 +113,7 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="{{ route('dashboard') }}" class="logo text-center">
+        <a href="{{ route('dashboardPage') }}" class="logo text-center">
             <span class="logo-lg">
                 <span class="logo-lg-text-light">Prime Hosting</span>
             </span>
