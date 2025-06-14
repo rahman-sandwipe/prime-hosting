@@ -47,8 +47,8 @@
     </div>
 </div>
 
-
 <script>
+    // Open edit modal
     $(document).on('click', '.edit-service', function() {
         var editedId = $(this).data('id');
         $.ajax({
@@ -69,7 +69,7 @@
         });
     });
 
-    
+    // Preview image
     $('#editImage').on('change', function () {
         const file = this.files[0];
         if (file) {
