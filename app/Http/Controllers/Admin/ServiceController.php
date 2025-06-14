@@ -16,8 +16,11 @@ class ServiceController extends Controller
 
     // serviceList
     public function serviceList(){
-        $data = Service::all();
-        return response()->json(['data' => $data]);
+        $services = Service::all();
+        return response()->json([
+            'services' => $services,
+            'status' => 200
+        ]);
     }
     // serviceInsert
     public function serviceInsert(Request $request){
