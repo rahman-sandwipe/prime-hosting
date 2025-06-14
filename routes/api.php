@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\HostingPackageController;
+use App\Http\Controllers\Admin\ServerController;
 use App\Http\Controllers\Admin\ServiceController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -41,5 +42,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/service-modify/{service}',         'serviceModify')->name('serviceModify');
         Route::post('/service-update/{service}',        'serviceUpdate')->name('serviceUpdate');
         Route::delete('/service-delete/{service}',         'serviceDelete')->name('serviceDelete');
+    });
+
+    Route::controller(ServerController::class)->group(function () {
+        Route::get('/server-list',                      'serverList')->name('serverList');
+        Route::post('/server-insert',                   'serverInsert')->name('serverInsert');
+        Route::get('/server-details/{server}',          'serverDetails')->name('serverDetails');
+        Route::get('/server-modify/{server}',           'serverModify')->name('serverModify');
+        Route::post('/server-update/{server}',          'serverUpdate')->name('serverUpdate');
+        Route::get('/server-delete/{server}',           'serverDelete')->name('serverDelete');
     });
 });
