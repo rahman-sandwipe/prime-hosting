@@ -17,24 +17,26 @@
                     <li class="navbar-item">
                         <a class="navbar-link" href="{{ route('homePage') }}">home</a>
                     </li>
-                    <li class="navbar-item dropdown">
-                        <a href="#" class="navbar-link">domains</a>
-                        <ul class="dropdown-list">
-                            <li class="dropdown-item">
-                                <a href="" class="dropdown-link">Register a Domain</a>
-                            </li>
-                        </ul>
-                    </li>
-
-
-                    <!-- // + Hosting Section -->
                     <li class="navbar-item dropdown" id="getHosting">
                         <a href="#" class="navbar-link">Web Hosting</a>
                         <ul class="dropdown-list">
                             <!-- Dropdown items will be dynamically added here -->
                         </ul>
-                    </li>
+                    </li>    <!-- // + Hosting Section -->
                     
+                    <li class="navbar-item dropdown" id="getServer">
+                        <a href="#" class="navbar-link">Servers</a>
+                        <ul class="dropdown-list">
+                            <!-- Dropdown items will be dynamically added here -->
+                        </ul>
+                    </li>    <!-- // + Server Section -->
+
+                    <li class="navbar-item dropdown" id="getService">
+                        <a href="#" class="navbar-link">Services</a>
+                        <ul class="dropdown-list">
+                            <!-- Dropdown items will be dynamically added here -->
+                        </ul>
+                    </li>    <!-- // + Services Section -->
                     
                     <li class="navbar-item"><a href="#" class="navbar-link">Help</a></li>
                     <li class="navbar-item"><a href="" class="navbar-link">Blogs</a></li>
@@ -60,6 +62,7 @@
     </div>
 </header>
 
+<!-- + Hosting Section -->
 <script>
     $(document).ready(function () {
         $.ajax({
@@ -78,6 +81,60 @@
                         </li>`;
                 });
                 $('#getHosting ul').html(rows);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+
+<!-- + Server Section -->
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/server-list',
+            method: 'GET',
+            success: function (response) {
+                let rows = '';
+                response.servers.forEach(function (server) {
+                    rows += `
+                        <li class="dropdown-item">    
+                            <a href="${server.link}" 
+                            class="dropdown-link border-bottom">
+                                <i class="flaticon-computer"></i> ${server.title}
+                            </a>
+                        </li>
+                    `;
+                });
+                $('#getServer ul').html(rows);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+
+<!-- + Services Section -->
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/service-list',
+            method: 'GET',
+            success: function (response) {
+                let rows = '';
+                response.services.forEach(function (service) {
+                    rows += `
+                        <li class="dropdown-item">    
+                            <a href="${service.link}" 
+                            class="dropdown-link border-bottom">
+                                <i class="flaticon-computer"></i> ${service.title}
+                            </a>
+                        </li>
+                    `;
+                });
+                $('#getService ul').html(rows);
             },
             error: function (error) {
                 console.log(error);

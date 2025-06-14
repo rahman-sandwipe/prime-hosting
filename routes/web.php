@@ -1,26 +1,19 @@
 <?php
 
-use App\Http\Controllers\User\HostingPackageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\ServerController;
+use App\Http\Controllers\User\ServiceController;
+use App\Http\Controllers\User\AttributeController;
 
 /**Authenticate Routes */
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\User\HostingPackageController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\User\AttributeController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+/* | ---------- |Web Routes| ---------- | */
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('register', [RegisteredUserController::class, 'store']);
@@ -49,6 +42,17 @@ Route::controller(HostingPackageController::class)->group(function () {
     Route::get('/hosting-package/{attribute:attribute_slug}', 'hostingPackage')->name('hostingPage');
 });
 
+/* | ---------- |Server Section| ---------- | */
+Route::controller(ServerController::class)->group(function () {
+    Route::get('/server-list',                      'serverList')->name('serverList');
+    Route::get('/server-details/{server}',          'serverDetails')->name('serverDetails');
+});
+
+/* | ---------- |Service Section| ---------- | */
+Route::controller(ServiceController::class)->group(function () {
+    Route::get('/service-list',                     'serviceList')->name('serviceList');
+    Route::get('/service-details/{service}',        'serviceDetails')->name('serviceDetails');
+});
 
 require __DIR__.'/auth.php';
 require __DIR__.'/api.php';
