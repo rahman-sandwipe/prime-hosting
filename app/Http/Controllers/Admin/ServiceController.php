@@ -44,7 +44,7 @@ class ServiceController extends Controller
     public function serviceDetails(Service $service){
         return response()->json([
             'service' => $service
-        ], 200);
+        ]);
     }
 
     // serviceModify
