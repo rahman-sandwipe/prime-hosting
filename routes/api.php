@@ -50,6 +50,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/server-details/{server}',          'serverDetails')->name('serverDetails');
         Route::get('/server-modify/{server}',           'serverModify')->name('serverModify');
         Route::post('/server-update/{server}',          'serverUpdate')->name('serverUpdate');
-        Route::get('/server-delete/{server}',           'serverDelete')->name('serverDelete');
+        Route::delete('/server-delete/{server}',        'serverDelete')->name('serverDelete');
     });
 });

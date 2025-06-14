@@ -1,9 +1,9 @@
-<!-- Edit Attribute Modal -->
+<!-- Edit Servers Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Service</h5>
+                <h5 class="modal-title" id="editModalLabel">Edit Server</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -49,17 +49,17 @@
 
 <script>
     // Open edit modal
-    $(document).on('click', '.edit-service', function() {
+    $(document).on('click', '.edit-server', function() {
         var editedId = $(this).data('id');
         $.ajax({
-            url: '/admin/service-modify/' + editedId,
+            url: '/admin/server-modify/' + editedId,
             type: 'GET',
             success: function(response) {
-                $('#editName').val(response.service.title);
-                $('#editLink').val(response.service.link);
-                $('#editDescription').val(response.service.description);
-                $('.img-preview').html(`<img src="${response.service.image}" width="100" height="100">`);
-                $('#updateForm').attr('action', '/admin/service-update/' + editedId);
+                $('#editName').val(response.server.title);
+                $('#editLink').val(response.server.link);
+                $('#editDescription').val(response.server.description);
+                $('.img-preview').html(`<img src="${response.server.image}" width="100" height="100">`);
+                $('#updateForm').attr('action', '/admin/server-update/' + editedId);
                 var modal = new bootstrap.Modal(document.getElementById('editModal'));
                 modal.show();
             },
