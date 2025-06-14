@@ -17,6 +17,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Card Api</label>
+                        <input type="text" class="form-control" id="editPackageCardApi" name="card_api" required>
+                    </div>
+
+                    <div class="form-group">
                         <label>Description</label>
                         <textarea type="text" class="form-control" id="editPackageDescription" name="description" rows="3"></textarea>
                     </div>
@@ -107,6 +112,7 @@
                 let ePackage = response.ePackage;
     
                 $('#editPackageName').val(ePackage.name || 'N/A');
+                $('#editPackageCardApi').val(ePackage.card_api || 'N/A');
                 $('#editPackageDescription').val(ePackage.description || 'N/A');
                 $('#editPackagePriceMonthly').val(ePackage.price_monthly || 'N/A');
                 $('#editPackagePriceYearly').val(ePackage.price_yearly || 'N/A');

@@ -69,6 +69,12 @@
                         <div class="col-4">Updated At</div>
                         <div class="col-8" id="packageUpdatedAt"></div>
                     </div>
+                    <div class="row">
+                        <div class="col-4">Cart API Link</div>
+                        <div class="col-8" id="cartApiLink">
+                            <a href="" target="_blank" id="cartApiLink"> Buy Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -103,6 +109,7 @@
                 // Set package data to modal fields
                 $('#packageId').text(formattedId);
                 $('#packageName').text(package.name);
+                $('#cartApiLink').attr('href', package.cart_api);
                 $('#packageSlug').text(package.slug);
                 $('#packageAttribute').text(package.attribute.attribute_name);
                 $('#manthlyPackagePrice').text(package.price_monthly);

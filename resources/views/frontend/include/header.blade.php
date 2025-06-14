@@ -61,23 +61,25 @@
 </header>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $.ajax({
             url: '/attribute-list',
             method: 'GET',
-            success: function(response) {
+            success: function (response) {
                 let rows = '';
-                const hostingPageBaseURL = "{{ url('/hosting') }}";
-                response.attributes.forEach(function(attr, index) {
+                const hostingPageBaseURL = "{{ url('/hosting-package') }}";
+                response.attributes.forEach(function (attr) {
                     rows += `
-                    <li class="dropdown-item">    
-                        <a href="${hostingPageBaseURL}/${attr.attribute_slug}" class="dropdown-link border-bottom load-attribute" data-attribute-id="${attr.id}"><i class="flaticon-computer"></i> ${attr.attribute_name}</a>
-                    </li>
-                    `;
+                        <li class="dropdown-item">    
+                            <a href="${hostingPageBaseURL}/${attr.attribute_slug}" 
+                            class="dropdown-link border-bottom">
+                                <i class="flaticon-computer"></i> ${attr.attribute_name}
+                            </a>
+                        </li>`;
                 });
                 $('#getHosting ul').html(rows);
             },
-            error: function(error) {
+            error: function (error) {
                 console.log(error);
             }
         });

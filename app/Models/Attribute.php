@@ -11,4 +11,8 @@ class Attribute extends Model
         'attribute_name',
         'attribute_slug'
     ];
+
+    public function getRouteKeyName(){
+        return 'attribute_slug';
+    }
 }

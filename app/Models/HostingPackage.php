@@ -13,6 +13,7 @@ class HostingPackage extends Model
         'name',
         'slug',
         'description',
+        'card_api',
         'price_monthly',
         'price_yearly',
         'disk_space',

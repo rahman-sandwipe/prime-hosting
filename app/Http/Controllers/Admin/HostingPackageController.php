@@ -28,6 +28,7 @@ class HostingPackageController extends Controller
     public function packageInsert(Request $request){
         $data = $request->validate([
             'name' => 'required|string|max:255',
+            'card_api' => 'nullable|string',
             'description' => 'nullable|string',
             'price_monthly' => 'required|numeric',
             'price_yearly' => 'required|numeric',
@@ -69,6 +70,9 @@ class HostingPackageController extends Controller
     public function packageUpdate (Request $request, HostingPackage $hostingPackage)
     {
         $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'nullable|string',
+            'card_api' => 'nullable|string',
             'description' => 'nullable|string',
             'price_monthly' => 'required|numeric',
             'price_yearly' => 'required|numeric',

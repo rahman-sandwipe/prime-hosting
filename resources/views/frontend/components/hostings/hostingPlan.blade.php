@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
-                    <h2 class="section-subtitle">shared hosting</h2>
+                    <h2 class="section-subtitle">{{ $attribute->attribute_name }}</h2>
                     <h3 class="section-title">select <span>hosting plan</span></h3>
                 </div>
             </div>
@@ -13,40 +13,26 @@
                 <div class="table-responsive-lg">
                     <table class="table table-bordered table-hover compare-table">
                         <thead id="hostingPan">
+                            @if($packages->count())
                             <tr>
                                 <th scope="col">
                                     <div class="compare-image">
                                         <img src="{{ asset('images/partials/05.png') }}" alt="hero">
                                     </div>
                                 </th>
+                                @foreach($packages as $package)
                                 <th scope="col">
                                     <div class="compare-head">
-                                        <h3 class="compare-plan">starter</h3>
-                                        <h4 class="compare-tagline">Perfect for getting started</h4>
-                                        <h5 class="compare-price">$35<span>/mo</span></h5>
-                                        <h6 class="compare-discount">25% discount <del>$45.74</del></h6>
-                                        <a class="compare-purchase" href="cartlist.html">get now</a>
+                                        <h3 class="compare-plan">{{ $package->name }}</h3>
+                                        <h4 class="compare-tagline">{{ $package->description }}</h4>
+                                        <h5 class="compare-price">$ {{ $package->price_monthly }}<span>/ mo</span></h5>
+                                        <h4 class="compare-discount">$ {{ $package->price_yearly }}<span>/ yr</span></h4>
+                                        <a class="compare-purchase" href="">get now</a>
                                     </div>
                                 </th>
-                                <th scope="col">
-                                    <div class="compare-head">
-                                        <h3 class="compare-plan">popular</h3>
-                                        <h4 class="compare-tagline">Perfect for growing websites</h4>
-                                        <h5 class="compare-price">$49<span>/mo</span></h5>
-                                        <h6 class="compare-discount">25% discount <del>$59.62</del></h6>
-                                        <a class="compare-purchase" href="cartlist.html">get now</a>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="compare-head">
-                                        <h3 class="compare-plan">ultimate</h3>
-                                        <h4 class="compare-tagline">Perfect for online stores</h4>
-                                        <h5 class="compare-price">$68<span>/mo</span></h5>
-                                        <h6 class="compare-discount">25% discount <del>$78.74</del></h6>
-                                        <a class="compare-purchase" href="cartlist.html">get now</a>
-                                    </div>
-                                </th>
+                                @endforeach
                             </tr>
+                            @endif
                         </thead>
                         <tbody class="compare-content">
                             <tr>
@@ -104,14 +90,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <a href="#" class="btn btn-inline compare-btn">
-                        <i class="fas fa-eye"></i>
-                        <span>show more</span>
-                    </a>
                 </div>
             </div>
         </div>

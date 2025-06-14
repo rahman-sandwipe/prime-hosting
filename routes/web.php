@@ -1,18 +1,10 @@
 <?php
 
+use App\Http\Controllers\User\HostingPackageController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\User\HomeController;
-use App\Http\Controllers\CloudHostingController;
-use App\Http\Controllers\DomainPricingController;
-use App\Http\Controllers\SharedHostingController;
-use App\Http\Controllers\RegisterDomainController;
-use App\Http\Controllers\ResellerDomainController;
-use App\Http\Controllers\TransferDomainController;
 
 /**Authenticate Routes */
-use App\Http\Controllers\ResellerHostingController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -48,10 +40,13 @@ Route::get('/',                 [HomeController::class, 'homePage'])->name('home
 
 // AttributeController
 Route::controller(AttributeController::class)->group(function () {
-    Route::get('/hosting/{attribute}',              'hostingPage')->name('hostingPage');
     Route::get('/attribute-list',                   'attributeList')->name('attributeList');
     Route::get('/attribute-details/{attribute}',    'attributeDetails')->name('attributeDetails');
     Route::get('/get-package/{attribute}',          'getPackage')->name('getPackage');
+});
+
+Route::controller(HostingPackageController::class)->group(function () {
+    Route::get('/hosting-package/{attribute:attribute_slug}', 'hostingPackage')->name('hostingPage');
 });
 
 

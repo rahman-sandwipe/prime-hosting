@@ -13,51 +13,57 @@
                     @csrf
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" name="name" required>
+                        <input type="text" class="form-control" name="name" placeholder="eg: Hosting Package" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Card Api</label>
+                        <input type="text" class="form-control" name="card_api" placeholder="eg: www.https://example.com" required>
                     </div>
 
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" name="description" rows="3"></textarea>
+                        <textarea class="form-control" name="description" placeholder="eg: Description" rows="3"></textarea>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-6">
                             <label>Price (Monthly)</label>
-                            <input type="number" step="0.01" class="form-control" name="price_monthly" required>
+                            <input type="number" step="0.01" class="form-control" name="price_monthly" placeholder="eg: 100" required>
                         </div>
 
                         <div class="form-group col-6">
                             <label>Price (Yearly)</label>
-                            <input type="number" step="0.01" class="form-control" name="price_yearly" required>
+                            <input type="number" step="0.01" class="form-control" name="price_yearly" placeholder="eg: 100" required>
                         </div>
 
                         <div class="form-group col-6">
                             <label>Support Type</label>
-                            <input type="text" class="form-control" name="support_type" required>
+                            <input type="text" class="form-control" name="support_type" placeholder="eg: 24/7" required>
                         </div>
                         <div class="form-group col-6">
                             <label>Disk Space</label>
-                            <input type="text" class="form-control" name="disk_space" required>
+                            <input type="text" class="form-control" name="disk_space" placeholder="eg: 10GB" required>
                         </div>
 
                         <div class="form-group col-4">
                             <label>Bandwidth</label>
-                            <input type="text" class="form-control" name="bandwidth" required>
+                            <input type="text" class="form-control" name="bandwidth" placeholder="eg: 1GB" required>
                         </div>
 
                         <div class="form-group col-4">
                             <label>Addon Domains</label>
-                            <input type="number" class="form-control" name="addon_domains" required>
+                            <input type="number" class="form-control" name="addon_domains" placeholder="eg: 5" required>
                         </div>
 
                         <div class="form-group col-4">
                             <label>Email Accounts</label>
-                            <input type="number" class="form-control" name="email_accounts" required>
+                            <input type="number" class="form-control" name="email_accounts" placeholder="eg: 5" required>
                         </div>
                         <div class="form-group col-6">
                             <label for="status"> Status</label>
                             <select class="form-control" name="status" required>
+                                <option value="" selected disabled>-- Select Status --</option>
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
                             </select>

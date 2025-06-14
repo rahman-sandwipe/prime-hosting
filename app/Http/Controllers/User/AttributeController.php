@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Attribute;
-use Illuminate\View\View;
 use App\Models\HostingPackage;
 use App\Http\Controllers\Controller;
 
 class AttributeController extends Controller
 {
-    public function hostingPage() : View {
-        return view('frontend.pages.hostingPage');
+    public function hostingPage(Attribute $attribute){
+        $packages = HostingPackage::where('attribute_id', $attribute->id)->get();
+        return view('frontend.pages.hostingPage', [
+            'attribute' => $attribute,
+            'packages' => $packages,
+        ]);
     }
 
     public function attributeList() {
