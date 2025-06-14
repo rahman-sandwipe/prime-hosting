@@ -10,7 +10,7 @@ class Server extends Model
     protected $fillable = [
         'title',
         'link',
-        'thumbnail',
+        'image',
         'description'
     ];
 }

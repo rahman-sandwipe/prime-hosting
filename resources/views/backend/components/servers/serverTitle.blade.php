@@ -6,10 +6,10 @@
                     <li class="breadcrumb-item">
                         <a href="{{ route('dashboardPage') }}">{{ __('Dashboard') }}</a>
                     </li>
-                    <li class="breadcrumb-item active">{{ __('Services') }}</li>
+                    <li class="breadcrumb-item active">{{ __('Servers') }}</li>
                 </ol>
             </div>
-            <h4 class="page-title">{{ __('Services') }}</h4>
+            <h4 class="page-title">{{ __('Servers') }}</h4>
         </div>
     </div>
 </div>  
