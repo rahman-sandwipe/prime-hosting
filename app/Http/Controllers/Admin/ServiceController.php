@@ -57,16 +57,18 @@ class ServiceController extends Controller
     // serviceUpdate
     public function serviceUpdate(Request $request, Service $service){
         $data = $request->all();
-        if ($request->hasFile('thumbnail')) {
-            $image = $request->file('thumbnail');
-            $name = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/services');
-            $image->move($destinationPath, $name);
-            $data['thumbnail'] = $name;
+        if ($request->hasFile('image')) {
+            $manager = new ImageManager(new Driver());
+            $name_gen =  time().'.'.$request->file('image')->getClientOriginalExtension();
+            $image = $manager->read($request->file('image'));
+            $image = $image->resize(200, 200);
+            $image->save(base_path('public/images/services/' . $name_gen));
+            $save_url = '/images/services/' . $name_gen;
+            $data['image'] = $save_url;
         }
         $service->update($data);
         return response()->json([
-            'service' => $service
+            'message' => 'Service updated successfully!'
         ], 200);
     }
 

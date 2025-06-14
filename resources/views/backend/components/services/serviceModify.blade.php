@@ -3,20 +3,44 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Attribute</h5>
+                <h5 class="modal-title" id="editModalLabel">Edit Service</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="attributeUpdateForm" method="POST">
+                <form id="updateForm" enctype="multipart/form-data">
                     @csrf
+                    <!-- Title -->
                     <div class="form-group">
-                        <label for="editAttrName">Attribute Name</label>
-                        <input type="text" class="form-control" id="editAttrName" name="attribute_name" required>
+                        <label for="editName">Name</label>
+                        <input type="text" class="form-control" id="editName" name="title" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block">UPDATE ATTRIBUTE</button>
+                    <!-- Link -->
+                    <div class="form-group">
+                        <label for="editLink">Link</label>
+                        <input type="text" class="form-control" id="editLink" name="link" required>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="editDescription">Description</label>
+                        <textarea class="form-control" id="editDescription" name="description" rows="3" required></textarea>
+                    </div>
+
+                    <!-- Image Preview -->
+                    <div class="form-group">
+                        <div class="img-preview"></div>
+                    </div>
+
+                    <!-- Image Upload -->
+                    <div class="form-group">
+                        <label for="editImage">Image</label>
+                        <input type="file" class="form-control" id="editImage" name="image" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">UPDATE</button>
                 </form>
             </div>
         </div>
@@ -25,18 +49,17 @@
 
 
 <script>
-    $(document).on('click', '.edit-attribute', function() {
-        var attributeId = $(this).data('id');
+    $(document).on('click', '.edit-service', function() {
+        var editedId = $(this).data('id');
         $.ajax({
-            url: '/admin/attribute-modify/' + attributeId,
+            url: '/admin/service-modify/' + editedId,
             type: 'GET',
             success: function(response) {
-                $('#editAttrId').val(response.id);
-                $('#editAttrName').val(response.attribute_name);
-                $('#editAttrSlug').val(response.attribute_slug);
-                // Update the form action attribute
-                $('#attributeUpdateForm').attr('action', '/admin/attribute-update/' + attributeId);
-                // Show Bootstrap modal
+                $('#editName').val(response.service.title);
+                $('#editLink').val(response.service.link);
+                $('#editDescription').val(response.service.description);
+                $('.img-preview').html(`<img src="${response.service.image}" width="100" height="100">`);
+                $('#updateForm').attr('action', '/admin/service-update/' + editedId);
                 var modal = new bootstrap.Modal(document.getElementById('editModal'));
                 modal.show();
             },
@@ -46,18 +69,35 @@
         });
     });
 
-    $('#attributeUpdateForm').submit(function(e) {
+    
+    $('#editImage').on('change', function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                $('.img-preview').html(`<img src="${e.target.result}" width="100" height="100">`);
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Submit updated form with image
+    $('#updateForm').submit(function (e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = new FormData(this); // Use FormData to handle file upload
         $.ajax({
             url: $(this).attr('action'),
             type: 'POST',
             data: formData,
-            success: function(response) {
-                location.reload();
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                toastr.success(response.message, 'Updated!');
+                $('#editModal').modal('hide');
+                setTimeout(() => location.reload(), 1000);
             },
-            error: function(error) {
-                console.log(error);
+            error: function (error) {
+                console.error('Update error:', error);
             }
         });
     });
