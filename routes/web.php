@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\User\AttributeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,34 +43,17 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
 });
 
-Route::get('/', [HomeController::class, 'homePage'])->name('homePage');
+Route::get('/',                 [HomeController::class, 'homePage'])->name('homePage');
 
 
+// AttributeController
+Route::controller(AttributeController::class)->group(function () {
+    Route::get('/hosting/{attribute}',              'hostingPage')->name('hostingPage');
+    Route::get('/attribute-list',                   'attributeList')->name('attributeList');
+    Route::get('/attribute-details/{attribute}',    'attributeDetails')->name('attributeDetails');
+    Route::get('/get-package/{attribute}',          'getPackage')->name('getPackage');
+});
 
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/contact-us', [ContactController::class, 'contactPage'])->name('contactPage');
-Route::post('/contact-us', [ContactController::class, 'submitFrom']);
-
-Route::get('/blogs', [BlogController::class, 'blogPage'])->name('blogPage');
-
-Route::get('register-domain', [RegisterDomainController::class, 'registerDomainPage'])->name('registerDomainPage');
-Route::get('transfer-domain', [TransferDomainController::class, 'transferDomainPage'])->name('transferDomainPage');
-Route::get('reseller-domain', [ResellerDomainController::class, 'resellerDomainPage'])->name('resellerDomainPage');
-Route::get('domain-pricing', [DomainPricingController::class, 'domainPricingPage'])->name('domainPricingPage');
-
-Route::get('cloud-hosting', [CloudHostingController::class, 'cloudHostingPage'])->name('cloudHostingPage');
-Route::get('shared-hosting', [SharedHostingController::class, 'sharedHostingPage'])->name('sharedHostingPage');
-Route::get('reseller-hosting', [ResellerHostingController::class, 'resellerHostingPage'])->name('resellerHostingPage');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/api.php';

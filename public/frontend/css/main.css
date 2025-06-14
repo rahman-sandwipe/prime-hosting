@@ -344,8 +344,6 @@ body {
 	top: 85px;
 	left: 0px;
 	z-index: 1;
-	min-width: 200px;
-	max-width: 200px;
 	padding: 15px 0px;
 	border-radius: 6px;
 	background: var(--white);
@@ -2252,6 +2250,7 @@ body {
 	margin-bottom: 3px;
 	background: var(--gradient);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent
 }
 
@@ -2974,6 +2973,7 @@ body {
 	text-transform: capitalize;
 	background: var(--gradient);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent
 }
 

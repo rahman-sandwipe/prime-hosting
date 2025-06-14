@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="{{ asset('frontend/vendor/bootstrap/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
 		<link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body class="font-sans text-gray-900 antialiased">
         @include('frontend.include.top-header')
