@@ -27,7 +27,7 @@
                                         <h4 class="compare-tagline">{{ $package->description }}</h4>
                                         <h5 class="compare-price">$ {{ $package->price_monthly }}<span>/ mo</span></h5>
                                         <h4 class="compare-discount">$ {{ $package->price_yearly }}<span>/ yr</span></h4>
-                                        <a class="compare-purchase" href="">get now</a>
+                                        <a class="compare-purchase" href="{{ url($package->card_api) }}">get now</a>
                                     </div>
                                 </th>
                                 @endforeach
