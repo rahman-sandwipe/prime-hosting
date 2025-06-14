@@ -20,8 +20,8 @@
                             <table class="table" id="serviceList">
                                 <thead>
                                     <tr>
-                                        <th>#SL</th>
-                                        <th>ID</th>
+                                        <th>#SL / ID</th>
+                                        <th>Image</th>
                                         <th>Name</th>
                                         <th>Link</th>
                                         <th class="text-center" width="180">Action</th>
@@ -46,22 +46,22 @@
             method: 'GET',
             success: function(response) {
                 let rows = '';
-                response.services.forEach(function(attr, index) {
-                    // Format ID as 4-digit with leading zeros
-                    let formattedId = attr.id.toString().padStart(4, '0');
+                response.services.forEach(function(service, index) {
+                    // Format ID as 6-digit with leading zeros
+                    let formattedId = service.id.toString().padStart(6, '0');
                     rows += `<tr>
-                        <td>${index + 1}</td>
-                        <td>${formattedId}</td>
-                        <td>${attr.t}</td>
-                        <td>${attr.service_slug}</td>
+                        <td>${index + 1} / ${formattedId}</td>
+                        <td><img src="${service.image}" alt="${service.title}" width="70"></td>
+                        <td>${service.title}</td>
+                        <td><a href="${service.link}" class="badge badge-primary p-1" target="_blank">Redirect Link</a></td>
                         <td class="text-center" width="180">
-                            <button class="btn btn-primary btn-sm details-service" data-id="${attr.id}">
+                            <button class="btn btn-primary btn-sm details-service" data-id="${service.id}">
                                 <i class="fas fa-eye"></i>    
                             </button>
-                            <button class="btn btn-primary btn-sm edit-service" data-id="${attr.id}">
+                            <button class="btn btn-primary btn-sm edit-service" data-id="${service.id}">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm delete-service" data-id="${attr.id}">
+                            <button class="btn btn-danger btn-sm delete-service" data-id="${service.id}">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </td>

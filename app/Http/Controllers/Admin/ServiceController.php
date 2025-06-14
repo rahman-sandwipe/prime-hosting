@@ -31,7 +31,7 @@ class ServiceController extends Controller
             $image = $manager->read($request->file('image'));
             $image = $image->resize(200, 200);
             $image->save(base_path('public/images/services/' . $name_gen));
-            $save_url = 'images/services/' . $name_gen;
+            $save_url = '/images/services/' . $name_gen;
             $data['image'] = $save_url;
         }
         Service::create($data);
