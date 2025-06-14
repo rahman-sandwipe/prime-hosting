@@ -10,6 +10,7 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class ServiceController extends Controller
 {
+    // ServicesPage
     public function ServicesPage(){
         return view('backend.pages.servicePage');
     }
@@ -22,6 +23,7 @@ class ServiceController extends Controller
             'status' => 200
         ]);
     }
+
     // serviceInsert
     public function serviceInsert(Request $request){
         $data = $request->all();
