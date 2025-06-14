@@ -9,6 +9,19 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('servicesPage') }}">
+                        <i class="fa fa-list"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('serversPage') }}">
+                        <i class="fa fa-list"></i>
+                        <span>Servers</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="{{ route('usersPage') }}">
