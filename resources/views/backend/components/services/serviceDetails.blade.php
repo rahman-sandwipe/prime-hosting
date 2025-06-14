@@ -1,37 +1,37 @@
-<!-- Details Server Modal -->
+<!-- Details Service Modal -->
 <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="detailsModalLabel">Details Server</h5>
+                <h5 class="modal-title" id="detailsModalLabel">Details Service</h5>
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <!-- Server Title -->
+                    <!-- Service Title -->
                     <div class="row border p-2">
-                        <div class="col-4">Server ID</div>
+                        <div class="col-4">Service ID</div>
                         <div class="col-8" id="srvId"></div>
                     </div>
 
-                    <!-- Server Name -->
+                    <!-- Service Name -->
                     <div class="row border p-2">
-                        <div class="col-4">Server Title</div>
+                        <div class="col-4">Service Title</div>
                         <div class="col-8" id="srvName"></div>
                     </div>
 
-                    <!-- Server Description -->
+                    <!-- Service Description -->
                     <div class="row border p-2">
                         <div class="col-4">Description</div>
                         <div class="col-8" id="srvDescription"></div>
                     </div>
 
-                    <!-- Server Created At -->
+                    <!-- Service Created At -->
                     <div class="row border p-2">
                         <div class="col-4">Created At</div>
                         <div class="col" id="srvCreated"></div>
                     </div>
 
-                    <!-- Server Updated At -->
+                    <!-- Service Updated At -->
                     <div class="row border p-2">
                         <div class="col-4">Updated At</div>
                         <div class="col" id="srvUpdated"></div>
@@ -43,9 +43,9 @@
                         <div class="col-8" id="redirectUrl"></div>
                     </div>
 
-                    <!-- Server Image -->
+                    <!-- Service Image -->
                     <div class="row border p-2">
-                        <div class="col-4">Server Image</div>
+                        <div class="col-4">Service Image</div>
                         <div class="col-8" id="srvImage"></div>
                     </div>
                 </div>
@@ -58,13 +58,13 @@
 </div>
 
 <script>
-    $(document).on('click', '.details-server', function() {
-        var serverId = $(this).data('id');
+    $(document).on('click', '.details-service', function() {
+        var serviceId = $(this).data('id');
         $.ajax({
-            url: '/admin/server-details/' + serverId,
+            url: '/admin/service-details/' + serviceId,
             method: 'GET',
             success: function(response) {
-                let formattedId = response.server.id.toString().padStart(6, '0');
+                let formattedId = response.service.id.toString().padStart(6, '0');
                 function formatDate(dateString) {
                     const date = new Date(dateString);
                     const options = {
@@ -76,17 +76,17 @@
                     return date.toLocaleString('en-US', options);
                 }
                 $('#srvId').text(formattedId);
-                $('#srvName').text(response.server.title);
-                $('#srvDescription').text(response.server.description);
-                $('#srvCreated').text(formatDate(response.server.created_at));
-                $('#srvUpdated').text(formatDate(response.server.updated_at));
-                $('#redirectUrl').html('<a href="' + response.server.link + '" target="_blank" class="badge badge-primary p-1">Redirect URL</a>');
-                $('#srvImage').html('<img src="' + response.server.image + '" alt="'+ response.server.title +'" class="img-fluid" width="100">');
+                $('#srvName').text(response.service.title);
+                $('#srvDescription').text(response.service.description);
+                $('#srvCreated').text(formatDate(response.service.created_at));
+                $('#srvUpdated').text(formatDate(response.service.updated_at));
+                $('#redirectUrl').html('<a href="' + response.service.link + '" target="_blank" class="badge badge-primary p-1">Redirect URL</a>');
+                $('#srvImage').html('<img src="' + response.service.image + '" alt="'+ response.service.title +'" class="img-fluid" width="100">');
                 var modal = new bootstrap.Modal(document.getElementById('detailsModal'));
                 modal.show();
             },
             error: function(err) {
-                alert('Failed to fetch server details.');
+                alert('Failed to fetch service details.');
                 console.error(err);
             }
         });
