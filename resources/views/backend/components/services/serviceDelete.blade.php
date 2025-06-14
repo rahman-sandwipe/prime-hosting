@@ -1,5 +1,4 @@
-<!-- Delete Attribute Modal -->
-<!-- Delete Attribute Modal -->
+<!-- Delete Service Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
@@ -13,16 +12,15 @@
             </div>
             <div class="modal-body text-center">
                 <p class="fw-semibold text-danger mb-2">This action cannot be undone.</p>
-                <p>Are you sure you want to permanently delete this attribute?</p>
-                <input type="hidden" id="deleteAttrId">
+                <p>Are you sure you want to permanently delete this service?</p>
+                <input type="hidden" id="deleteId">
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times; Close</span>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    &times; Close
                 </button>
                 <button type="button" id="confirmDeleteBtn" class="btn btn-danger">
-                    <i class="fa fa-trash mr-1"></i>
-                    <span aria-hidden="true">Delete</span>
+                    <i class="fa fa-trash mr-1"></i> Delete
                 </button>
             </div>
         </div>
@@ -30,27 +28,30 @@
 </div>
 
 <script>
-    // When clicking delete button from the table
-    $(document).on('click', '.delete-attribute', function() {
-        var attributeId = $(this).data('id');
-        $('#deleteAttrId').val(attributeId);
-        var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    // Show modal and set delete ID
+    $(document).on('click', '.delete-service', function () {
+        const deleteId = $(this).data('id');
+        $('#deleteId').val(deleteId);
+        const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
         modal.show();
     });
 
-    // When confirming delete inside modal
-    $('#confirmDeleteBtn').click(function() {
-        var attributeId = $('#deleteAttrId').val();
+    // Confirm deletion
+    $('#confirmDeleteBtn').click(function () {
+        const deleteId = $('#deleteId').val();
         $.ajax({
-            url: '/admin/attribute-delete/' + attributeId,
-            type: 'GET', // or DELETE if your route supports it
-            success: function(response) {
-                toastr.success(response.message, 'Success');
+            url: '/admin/service-delete/' + deleteId,
+            type: 'DELETE',
+            data: {
+                _token: '{{ csrf_token() }}' // Laravel CSRF token
+            },
+            success: function (response) {
+                toastr.success(response.message || 'Deleted successfully', 'Success');
                 $('#deleteModal').modal('hide');
                 setTimeout(() => location.reload(), 1000);
             },
-            error: function(error) {
-                alert('Failed to delete attribute.');
+            error: function (error) {
+                toastr.error('Failed to delete service.', 'Error');
                 console.error(error);
             }
         });

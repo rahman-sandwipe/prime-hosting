@@ -40,6 +40,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/service-details/{service}',        'serviceDetails')->name('serviceDetails');
         Route::get('/service-modify/{service}',         'serviceModify')->name('serviceModify');
         Route::post('/service-update/{service}',        'serviceUpdate')->name('serviceUpdate');
-        Route::get('/service-delete/{service}',         'serviceDelete')->name('serviceDelete');
+        Route::delete('/service-delete/{service}',         'serviceDelete')->name('serviceDelete');
     });
 });

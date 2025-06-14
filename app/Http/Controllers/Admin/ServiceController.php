@@ -74,6 +74,9 @@ class ServiceController extends Controller
 
     // serviceDelete
     public function serviceDelete(Service $service){
+        if (file_exists(public_path($service->image))) {
+            unlink(public_path($service->image));
+        }
         $service->delete();
         return response()->json([
             'service' => $service
