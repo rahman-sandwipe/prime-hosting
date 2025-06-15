@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\User\HostingPackageController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\User\FeatureController;
 
 /* | ---------- |Web Routes| ---------- | */
 Route::middleware('guest')->group(function () {
@@ -30,6 +31,9 @@ Route::middleware('guest')->group(function () {
 
 Route::get('/',                 [HomeController::class, 'homePage'])->name('homePage');
 
+Route::controller(FeatureController::class)->group(function () {
+    Route::get('/feature-list',                   'featureList')->name('featureList');
+});
 
 // AttributeController
 Route::controller(AttributeController::class)->group(function () {
