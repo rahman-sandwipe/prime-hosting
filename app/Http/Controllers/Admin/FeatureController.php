@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class FeatureController extends Controller
 {
-    //
+    public function FeaturesPage()
+    {
+        return view('backend.pages.featurePage');
+    }
 }

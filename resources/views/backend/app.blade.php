@@ -15,6 +15,29 @@
         <!-- Include in toastr -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                @if (session('success'))
+                    toastr.success("{{ session('success') }}");
+                @elseif (session('error'))
+                    toastr.error("{{ session('error') }}");
+                @endif
+            });
+        </script>
+        <style>
+            .img-preview {
+                width: 100px;
+                height: 100px;
+                overflow: hidden;
+                border: 2px solid #ccc;
+            }
+            .img-preview img {
+                max-width: 100%;
+                max-height: 100%;
+                padding: 1px;
+                object-fit: cover;
+            }
+        </style>
     </head>
     <body>
         <div id="wrapper">
