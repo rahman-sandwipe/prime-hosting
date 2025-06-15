@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="addFeatureForm" enctype="multipart/form-data">
+                <form id="addFeature" enctype="multipart/form-data">
                     @csrf
                     <!-- Name -->
                     <div class="form-group">
@@ -20,8 +20,23 @@
                     <!-- Description -->
                     <div class="form-group">
                         <label for="inputDescription">Description</label>
-                        <textarea class="form-control" id="inputDescription" name="description" rows="3" required></textarea>
+                        <textarea class="form-control" id="inputDescription" name="description" rows="3"></textarea>
                     </div>
+
+                    <!-- Is Active -->
+                    <div class="form-check form-switch mb-3">
+                        <!-- Hidden fallback value -->
+                        <input type="hidden" name="is_active" value="0">
+
+                        <input class="form-check-input" type="checkbox" id="inputIsActive" name="is_active" value="1"
+                            {{ old('is_active', true) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="inputIsActive">
+                            Is Active <span id="statusLabel" class="badge {{ old('is_active', true) ? 'bg-success' : 'bg-danger' }}">
+                                {{ old('is_active', true) ? 'Active' : 'Inactive' }}
+                            </span>
+                        </label>
+                    </div>
+
 
                     <!-- IMG Icon Preview -->
                     <div class="form-group">
@@ -30,8 +45,8 @@
 
                     <!-- IMG Icon Upload -->
                     <div class="form-group">
-                        <label for="inputImage">Image</label>
-                        <input type="file" class="form-control" id="inputImage" name="icon" required>
+                        <label for="inputImage">IMG Icon</label>
+                        <input type="file" class="form-control" id="inputImage" name="icon">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">INSERT</button>
                 </form>
@@ -40,7 +55,15 @@
     </div>
 </div>
 <script>
-    $('#addFeatureForm').submit(function (e) {
+    $('#inputIsActive').on('change', function () {
+        const isChecked = $(this).is(':checked');
+        $('#statusLabel')
+            .text(isChecked ? 'Active' : 'Inactive')
+            .removeClass('bg-success bg-danger')
+            .addClass(isChecked ? 'bg-success' : 'bg-danger');
+    });
+
+    $('#addFeature').submit(function (e) {
         e.preventDefault();
         let form = this;
         let formData = new FormData(form);
@@ -56,7 +79,7 @@
                 setTimeout(() => location.reload(), 1000);
             },
             error: function (error) {
-                console.log(error);
+                toastr.error(error.responseJSON.message, 'Error');
             }
         });
     });
