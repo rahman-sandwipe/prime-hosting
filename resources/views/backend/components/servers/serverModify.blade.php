@@ -37,7 +37,7 @@
                     <!-- Image Upload -->
                     <div class="form-group">
                         <label for="editImage">Image</label>
-                        <input type="file" class="form-control" id="editImage" name="image" required>
+                        <input type="file" class="form-control" id="editImage" name="image">
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">UPDATE</button>

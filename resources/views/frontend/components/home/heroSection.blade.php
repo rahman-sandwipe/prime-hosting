@@ -6,8 +6,18 @@
                     <h1>find your perfect domain name</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, ullam sapiente! Sapiente molestias consectetur, quaerat, numquam modi obcaecati recusandae officiis quo libero</p>
                     <ul class="nav nav-tabs plan-tabs banner-tabs">
-                        <li><a href="#register" class="tab-link active" data-bs-toggle="tab"><i class="fas fa-user-edit"></i><span>register</span></a></li>
-                        <li><a href="#transfer" class="tab-link" data-bs-toggle="tab"><i class="fas fa-random"></i><span>Transfer</span></a></li>
+                        <li>
+                            <a href="#register" class="tab-link active" data-bs-toggle="tab">
+                                <i class="fas fa-user-edit"></i>
+                                <span>register</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#transfer" class="tab-link" data-bs-toggle="tab">
+                                <i class="fas fa-random"></i>
+                                <span>Transfer</span>
+                            </a>
+                        </li>
                     </ul>
                     <div class="tab-pane fade show active" id="register">
                         <form class="banner-form">
@@ -38,7 +48,10 @@
                                     </a>
                                 </div>
                             </div>
-                            <button type="submit" title="Search Domain"><i class="fas fa-search"></i><span>search</span></button>
+                            <button type="submit" title="Search Domain">
+                                <i class="fas fa-search"></i>
+                                <span>search</span>
+                            </button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="transfer">
@@ -60,13 +73,18 @@
                                     </a>
                                 </div>
                             </div>
-                            <button type="submit" title="Transfer Domain"><i class="fas fa-random"></i><span>Transfer</span></button>
+                            <button type="submit" title="Transfer Domain">
+                                <i class="fas fa-random"></i>
+                                <span>Transfer</span>
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="banner-image"><img src="images/hero/01.png" alt="hero"></div>
+                <div class="banner-image">
+                    <img src="{{ asset('images/partials/01.png') }}" alt="hero">
+                </div>
             </div>
         </div>
     </div>

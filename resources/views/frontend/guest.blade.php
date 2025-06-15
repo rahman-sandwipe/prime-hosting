@@ -37,6 +37,7 @@
 		<script src="{{ asset('frontend/vendor/venobox/venobox-call.js') }}"></script>
 		<script src="{{ asset('frontend/vendor/niceselect/niceselect.min.js') }}"></script>
 		<script src="{{ asset('frontend/js/main.js') }}"></script>
+		<script src="{{ asset('frontend/js/functions.js') }}"></script>
 		{{-- <script src="{{ asset('frontend/js/secure.js') }}"></script> --}}
 		@yield('styles')
     </body>

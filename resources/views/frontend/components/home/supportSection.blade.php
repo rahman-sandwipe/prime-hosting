@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-4 col-lg-5">
-                <div class="support-image"><img src="images/support.png" alt="support"></div>
+                <div class="support-image">
+                    <img src="{{ asset('images/partials/support.png') }}" alt="support">
+                </div>
             </div>
             <div class="col-md-8 col-lg-7">
                 <div class="support-content">
@@ -12,7 +14,16 @@
                         <li><span>for call</span><a href="tel:0209-4215-5596">0209-4215-5596</a></li>
                         <li><span>for mail</span><a href="mailto:info@domhost.com">info@domhost.com</a></li>
                     </ul>
-                    <div class="support-btn"><a href="#" class="btn btn-inline"><i class="fas fa-comments"></i><span>live chating</span></a><a href="contact.html" class="btn btn-inline"><i class="fas fa-file-signature"></i><span>contact us</span></a></div>
+                    <div class="support-btn">
+                        <a href="#" class="btn btn-inline">
+                            <i class="fas fa-comments"></i>
+                            <span>live chating</span>
+                        </a>
+                        <a href="contact.html" class="btn btn-inline">
+                            <i class="fas fa-file-signature"></i>
+                            <span>contact us</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

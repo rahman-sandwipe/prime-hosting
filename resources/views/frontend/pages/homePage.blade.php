@@ -1,33 +1,15 @@
 @extends('frontend.guest')
+@section('title', 'Home')
 @section('content')
     <main>
-        @include('frontend.components.home.hero-section')
-		@include('frontend.components.home.about-section')
-		@include('frontend.components.home.info-section')
-		@include('frontend.components.home.support-section')
-		@include('frontend.components.home.service-section')
-		@include('frontend.components.home.feature-section')
-		@include('frontend.components.home.price-section')
-		@include('frontend.components.home.testimonials-section')
-		<div class="container section-mb-120">
-			<div class="clients-slider">
-				<a href="#">
-					<img src="images/client/01.png" alt="client">
-				</a>
-				<a href="#">
-					<img src="images/client/02.png" alt="client">
-				</a>
-				<a href="#">
-					<img src="images/client/03.png" alt="client">
-				</a>
-				<a href="#">
-					<img src="images/client/04.png" alt="client">
-				</a>
-				<a href="#">
-					<img src="images/client/05.png" alt="client">
-				</a>
-			</div>
-		</div>
+        @include('frontend.components.home.heroSection')
+		@include('frontend.components.home.aboutSection')
+		@include('frontend.components.home.hostingSection')
+		@include('frontend.components.home.serviceSection')
+		@include('frontend.components.home.serverSection')
+		@include('frontend.components.home.featureSection')
+		@include('frontend.components.home.supportSection')
+		{{-- @include('frontend.components.home.reviewSection') --}}
 
 		<section class="call2action-part">
 			<div class="container">
