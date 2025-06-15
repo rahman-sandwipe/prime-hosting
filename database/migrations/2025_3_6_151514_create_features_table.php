@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('icon')->nullable();
             $table->timestamps();

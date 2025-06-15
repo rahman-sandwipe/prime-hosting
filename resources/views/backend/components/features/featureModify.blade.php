@@ -11,16 +11,16 @@
             <div class="modal-body">
                 <form id="updateForm" enctype="multipart/form-data">
                     @csrf
-                    <!-- Title -->
+                    <!-- Name -->
                     <div class="form-group">
                         <label for="editName">Name</label>
-                        <input type="text" class="form-control" id="editName" name="title" required>
+                        <input type="text" class="form-control" id="editName" name="name">
                     </div>
 
                     <!-- Description -->
                     <div class="form-group">
                         <label for="editDescription">Description</label>
-                        <textarea class="form-control" id="editDescription" name="description" rows="3" required></textarea>
+                        <textarea class="form-control" id="editDescription" name="description" rows="3"></textarea>
                     </div>
 
                     <!-- Is Active -->
@@ -66,7 +66,7 @@
                 modal.show();
             },
             error: function(error) {
-                console.log(error);
+                toastr.error(response.message, 'Error');
             }
         });
     });

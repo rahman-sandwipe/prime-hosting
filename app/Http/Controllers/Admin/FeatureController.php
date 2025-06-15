@@ -33,7 +33,6 @@ class FeatureController extends Controller
         ]);
 
         $data = $request->all();
-        $data['is_active'] = $request->has('is_active') ? 1 : 0; // Set is_active based on the request
         if ($request->hasFile('icon')) {
             $manager = new ImageManager(new Driver());
             $name_gen =  time().'.'.$request->file('icon')->getClientOriginalExtension();
@@ -65,7 +64,7 @@ class FeatureController extends Controller
 
     public function featureUpdate(Request $request, Feature $feature)
     {
-        $data = $request->all();
+        $data = $request->all();    // Get all request data
         if ($request->hasFile('icon')) {
             $manager = new ImageManager(new Driver());
             $name_gen =  time().'.'.$request->file('icon')->getClientOriginalExtension();
@@ -74,8 +73,12 @@ class FeatureController extends Controller
             $icon->save(public_path('images/partials/feature_' . $name_gen));    // Save the image in public path
             $save_url = '/images/partials/feature_' . $name_gen; // Save the image URL
             $data['icon'] = $save_url;   // Assign the URL to the icon field
-        }
+        }       // Check if the icon file is present in the request
         $feature->update($data);
+        return response()->json([
+            'data' => $data,
+            'message' => 'Feature updated successfully!'
+        ]);
     }    // featureUpdate
     
     public function featureDelete(Feature $feature)
