@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Service</h5>
+                <h5 class="modal-title" id="editModalLabel">Edit Feature</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,16 +17,19 @@
                         <input type="text" class="form-control" id="editName" name="title" required>
                     </div>
 
-                    <!-- Link -->
-                    <div class="form-group">
-                        <label for="editLink">Link</label>
-                        <input type="text" class="form-control" id="editLink" name="link" required>
-                    </div>
-
                     <!-- Description -->
                     <div class="form-group">
                         <label for="editDescription">Description</label>
                         <textarea class="form-control" id="editDescription" name="description" rows="3" required></textarea>
+                    </div>
+
+                    <!-- Is Active -->
+                    <div class="form-group">
+                        <label for="editStatus">Status</label>
+                        <select name="status" class="form-control" id="editStatus">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
                     </div>
 
                     <!-- Image Preview -->
@@ -37,7 +40,7 @@
                     <!-- Image Upload -->
                     <div class="form-group">
                         <label for="editImage">Image</label>
-                        <input type="file" class="form-control" id="editImage" name="image">
+                        <input type="file" class="form-control" id="editImage" name="icon">
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">UPDATE</button>
@@ -48,18 +51,17 @@
 </div>
 
 <script>
-    // Open edit modal
-    $(document).on('click', '.edit-service', function() {
+    $(document).on('click', '.edit-feature', function() {
         var editedId = $(this).data('id');
         $.ajax({
-            url: '/admin/service-modify/' + editedId,
+            url: '/admin/feature-modify/' + editedId,
             type: 'GET',
             success: function(response) {
-                $('#editName').val(response.service.title);
-                $('#editLink').val(response.service.link);
-                $('#editDescription').val(response.service.description);
-                $('.img-preview').html(`<img src="${response.service.image}" width="100" height="100">`);
-                $('#updateForm').attr('action', '/admin/service-update/' + editedId);
+                $('#editName').val(response.feature.name);
+                $('#editDescription').val(response.feature.description);
+                $('#editStatus').val(response.feature.status).change();
+                $('.img-preview').html(`<img src="${response.feature.icon}" width="100" height="100">`);
+                $('#updateForm').attr('action', '/admin/feature-update/' + editedId);
                 var modal = new bootstrap.Modal(document.getElementById('editModal'));
                 modal.show();
             },

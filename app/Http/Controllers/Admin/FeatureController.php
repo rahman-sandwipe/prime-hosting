@@ -17,8 +17,9 @@ class FeatureController extends Controller
 
     public function featureList()
     {
-        $features = Feature::all();
-        return response()->json($features);
+        return response()->json([
+            'features' => Feature::all()
+        ]);
     }    // featureList
 
     // featureInsert
@@ -27,7 +28,7 @@ class FeatureController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:features,name',
             'description' => 'nullable|string|max:1000',
-            'is_active' => 'boolean',
+            'status' => 'nullable|in:active,inactive',
             'icon' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048', // <-- এখানে image file validation
         ]);
 
@@ -50,25 +51,21 @@ class FeatureController extends Controller
     
     public function featureDetails(Feature $feature)
     {
-        return response()->json($feature);
+        return response()->json([
+            'feature' => $feature
+        ], 200);
     }    // featureDetails
 
     public function featureModify(Feature $feature)
     {
-        return response()->json($feature);
+        return response()->json([
+            'feature' => $feature
+        ], 200);
     }    // featureModify
 
     public function featureUpdate(Request $request, Feature $feature)
     {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:features,name',
-            'description' => 'nullable|string|max:1000',
-            'is_active' => 'boolean',
-            'icon' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048', // <-- এখানে image file validation
-        ]);
-
         $data = $request->all();
-        $data['is_active'] = $request->has('is_active') ? 1 : 0; // Set is_active based on the request
         if ($request->hasFile('icon')) {
             $manager = new ImageManager(new Driver());
             $name_gen =  time().'.'.$request->file('icon')->getClientOriginalExtension();

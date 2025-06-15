@@ -1,4 +1,4 @@
-<!-- Delete Service Modal -->
+<!-- Delete feature Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
@@ -12,7 +12,7 @@
             </div>
             <div class="modal-body text-center">
                 <p class="fw-semibold text-danger mb-2">This action cannot be undone.</p>
-                <p>Are you sure you want to permanently delete this service?</p>
+                <p>Are you sure you want to permanently delete this feature?</p>
                 <input type="hidden" id="deleteId">
             </div>
             <div class="modal-footer justify-content-between">
@@ -29,7 +29,7 @@
 
 <script>
     // Show modal and set delete ID
-    $(document).on('click', '.delete-service', function () {
+    $(document).on('click', '.delete-feature', function () {
         const deleteId = $(this).data('id');
         $('#deleteId').val(deleteId);
         const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
@@ -40,7 +40,7 @@
     $('#confirmDeleteBtn').click(function () {
         const deleteId = $('#deleteId').val();
         $.ajax({
-            url: '/admin/service-delete/' + deleteId,
+            url: '/admin/feature-delete/' + deleteId,
             type: 'DELETE',
             data: {
                 _token: '{{ csrf_token() }}' // Laravel CSRF token
@@ -51,7 +51,7 @@
                 setTimeout(() => location.reload(), 1000);
             },
             error: function (error) {
-                toastr.error('Failed to delete service.', 'Error');
+                toastr.error('Failed to delete feature.', 'Error');
                 console.error(error);
             }
         });

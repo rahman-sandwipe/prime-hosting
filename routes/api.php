@@ -25,7 +25,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/feature-details/{feature}',        'featureDetails')->name('featureDetails');
         Route::get('/feature-modify/{feature}',         'featureModify')->name('featureModify');
         Route::post('/feature-update/{feature}',        'featureUpdate')->name('featureUpdate');
-        Route::get('/feature-delete/{feature}',         'featureDelete')->name('featureDelete');
+        Route::delete('/feature-delete/{feature}',      'featureDelete')->name('featureDelete');
     });
 
     Route::controller(HostingPackageController::class)->group(function () {

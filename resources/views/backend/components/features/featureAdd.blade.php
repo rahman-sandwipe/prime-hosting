@@ -23,20 +23,13 @@
                         <textarea class="form-control" id="inputDescription" name="description" rows="3"></textarea>
                     </div>
 
-                    <!-- Is Active -->
-                    <div class="form-check form-switch mb-3">
-                        <!-- Hidden fallback value -->
-                        <input type="hidden" name="is_active" value="0">
-
-                        <input class="form-check-input" type="checkbox" id="inputIsActive" name="is_active" value="1"
-                            {{ old('is_active', true) ? 'checked' : '' }}>
-                        <label class="form-check-label" for="inputIsActive">
-                            Is Active <span id="statusLabel" class="badge {{ old('is_active', true) ? 'bg-success' : 'bg-danger' }}">
-                                {{ old('is_active', true) ? 'Active' : 'Inactive' }}
-                            </span>
-                        </label>
+                    <div class="form-group">
+                        <label for="inpitStatus">Status</label>
+                        <select name="status" class="form-control" id="inpitStatus">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
                     </div>
-
 
                     <!-- IMG Icon Preview -->
                     <div class="form-group">
@@ -55,14 +48,6 @@
     </div>
 </div>
 <script>
-    $('#inputIsActive').on('change', function () {
-        const isChecked = $(this).is(':checked');
-        $('#statusLabel')
-            .text(isChecked ? 'Active' : 'Inactive')
-            .removeClass('bg-success bg-danger')
-            .addClass(isChecked ? 'bg-success' : 'bg-danger');
-    });
-
     $('#addFeature').submit(function (e) {
         e.preventDefault();
         let form = this;
