@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ServerController;
+use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\HostingPackageController;
-use App\Http\Controllers\Admin\ServerController;
-use App\Http\Controllers\Admin\ServiceController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::controller(UserController::class)->group(function () {
@@ -15,6 +16,16 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/user-modify/{user}',               'userModify')->name('userModify');
         Route::post('/user-update/{user}',              'userUpdate')->name('userUpdate');
         Route::get('/user-delete/{user}',               'userDelete')->name('userDelete');
+    });
+
+    // Feature routes
+    Route::controller(FeatureController::class)->group(function () {
+        Route::get('/feature-list',                     'featureList')->name('featureList');
+        Route::post('/feature-insert',                  'featureInsert')->name('featureInsert');
+        Route::get('/feature-details/{feature}',        'featureDetails')->name('featureDetails');
+        Route::get('/feature-modify/{feature}',         'featureModify')->name('featureModify');
+        Route::post('/feature-update/{feature}',        'featureUpdate')->name('featureUpdate');
+        Route::get('/feature-delete/{feature}',         'featureDelete')->name('featureDelete');
     });
 
     Route::controller(HostingPackageController::class)->group(function () {
