@@ -1,4 +1,4 @@
-<section class="service-part section-mb-95">
+<section class="banner-part section-mb-95">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -50,39 +50,24 @@
                         <span>Hosting Packages</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="{{ route('ordersPage') }}">
-                        <i class="fe-bar-chart-2"></i>
-                        <span> Orders </span>
-                    </a>
-                </li>
-                {{--
-                <li>
-                    <a href="{{ route('paymentsPage') }}">
-                        <i class="fa fa-file-invoice"></i>
-                        <span>Payments</span>
-                    </a>
-                </li>
-
+                
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fa fa-headset"></i>
-                        <!-- <span class="badge badge-warning badge-pill float-right">09</span> -->
-                        <span> Supports </span>
+                        <span>Pages Settings </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{ route('compliteSupportPage') }}">Complite Request</a></li>
-                        <li><a href="{{ route('penddingSupportPage') }}">Pendding Request</a></li>
+                        <li>
+                            <a href="{{ route('pagesList') }}?hero-section">Hero Section</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pagesList') }}?about-section">About Section</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pagesList') }}?support-section">Support Section</a>
+                        </li>
                     </ul>
-                </li> --}}
-
-                <li>
-                    <a href="javascript: void(0);">
-                        <i class="fa fa-globe"></i>
-                        <span>Settings</span>
-                    </a>
                 </li>
             </ul>
 

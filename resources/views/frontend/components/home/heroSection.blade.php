@@ -20,7 +20,7 @@
                         </li>
                     </ul>
                     <div class="tab-pane fade show active" id="register">
-                        <form class="banner-form">
+                        <form action="#" class="banner-form">
                             <div class="banner-input-group">
                                 <div class="banner-input">
                                     <input type="text" placeholder="Enter Domain Address">
@@ -54,10 +54,13 @@
                             </button>
                         </form>
                     </div>
+
                     <div class="tab-pane fade" id="transfer">
-                        <form class="banner-form">
+                        <form action="#" class="banner-form">
                             <div class="banner-input-group">
-                                <div class="banner-input"><input type="text" placeholder="Enter Your Domain to Transfer"></div>
+                                <div class="banner-input">
+                                    <input type="text" placeholder="Enter Your Domain to Transfer">
+                                </div>
                                 <div class="banner-suggest">
                                     <a href="#">
                                         <h5>.io <span>- $9.45</span></h5>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\HostingPackageController;
+use App\Http\Controllers\Admin\PartialsSettingController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::controller(UserController::class)->group(function () {
