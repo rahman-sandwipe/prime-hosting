@@ -13,6 +13,7 @@ use App\Http\Controllers\User\HostingPackageController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\User\FeatureController;
+use App\Http\Controllers\User\SettingsController;
 
 /* | ---------- |Web Routes| ---------- | */
 Route::middleware('guest')->group(function () {
@@ -62,6 +63,16 @@ Route::controller(ServerController::class)->group(function () {
 Route::controller(ServiceController::class)->group(function () {
     Route::get('/service-list',                     'serviceList')->name('serviceList');
     Route::get('/service-details/{service}',        'serviceDetails')->name('serviceDetails');
+});
+
+/* | ---------- |Settings Routes| ---------- | */
+Route::controller(SettingsController::class)->group(function () {
+    Route::get('/contact-infos',            'contactInfosPage')->name('contactInfosPage');
+    Route::get('/mail-configs',             'mailConfigsPage')->name('mailConfigsPage');
+    Route::get('/seo-settings',             'seoSettingsPage')->name('seoSettingsPage');
+    Route::get('/site-settings',            'settingsPage')->name('settingsPage');
+    Route::get('/social-links',             'socialLinksPage')->name('socialLinksPage');
+    Route::get('/payment-gateways',         'peymentGetewaysPage')->name('peymentGetewaysPage');
 });
 
 require __DIR__.'/auth.php';

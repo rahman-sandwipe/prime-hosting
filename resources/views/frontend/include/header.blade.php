@@ -1,8 +1,8 @@
 <header class="header-part">
     <div class="container">
         <div class="header-nav-content">
-            <a href="{{ route('homePage') }}" class="header-logo">
-                <img src="https://dummyimage.com/200x70" alt="logo">
+            <a href="{{ route('homePage') }}" id="headerLogo" class="header-logo">
+                <!-- The logo will be dynamically loaded here -->
             </a>
             <nav class="nav-sidebar">
                 <div class="nav-header">
