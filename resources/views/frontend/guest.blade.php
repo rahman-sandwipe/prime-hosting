@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
         <title>@yield('title') :: {{ config('app.name') }}</title>
-
         <link rel="icon" href="{{ asset('images/favicon.png') }}">
+		
+		<link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}">
 		<link rel="stylesheet" href="{{ asset('frontend/fonts/flaticon/flaticon.css') }}">
 		<link rel="stylesheet" href="{{ asset('frontend/fonts/fontawesome/fontawesome.css') }}">
 		<link rel="stylesheet" href="{{ asset('frontend/vendor/slickslider/slick.min.css') }}">
@@ -20,7 +21,6 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         @include('frontend.include.top-header')
-		
         @include('frontend.include.header')
 
 		@yield('content')
@@ -28,6 +28,7 @@
         <!-- Footer -->
         @include('frontend.include.footer')
 
+		<!-- Scripts -->
         <script src="{{ asset('frontend/vendor/bootstrap/jquery-1.12.4.min.js') }}"></script>
 		<script src="{{ asset('frontend/vendor/bootstrap/popper.min.js') }}"></script>
 		<script src="{{ asset('frontend/vendor/bootstrap/bootstrap.min.js') }}"></script>

@@ -6,6 +6,7 @@ use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 use App\Models\AboutSection;
 use App\Models\HeroSection;
+use App\Models\SupportSection;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,7 @@ class HomeController extends Controller
         ]);
     }    // aboutSection
     public function supportSection() {
-        $supportData = AboutSection::first();
+        $supportData = SupportSection::first();
         return response()->json([
             'supportData' => $supportData
         ]);
