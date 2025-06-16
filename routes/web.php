@@ -29,7 +29,13 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
 });
 
-Route::get('/',                 [HomeController::class, 'homePage'])->name('homePage');
+/* | ---------- |User Home Section| ---------- | */
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/',                 'homePage')->name('homePage');
+    Route::get('/about-section',    'aboutSection');
+    Route::get('/hero-section',     'heroSection');
+    Route::get('/support-section',  'supportSection');
+});
 
 Route::controller(FeatureController::class)->group(function () {
     Route::get('/feature-list',                   'featureList')->name('featureList');

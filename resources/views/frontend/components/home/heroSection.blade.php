@@ -3,8 +3,12 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="banner-content">
-                    <h1>find your perfect domain name</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, ullam sapiente! Sapiente molestias consectetur, quaerat, numquam modi obcaecati recusandae officiis quo libero</p>
+                    <h1 id="bannerTitle">
+                        <!-- Banner Title will be loaded here -->
+                    </h1>
+                    <p id="bannerDescription">
+                        <!-- Banner Description will be loaded here -->
+                    </p>
                     <ul class="nav nav-tabs plan-tabs banner-tabs">
                         <li>
                             <a href="#register" class="tab-link active" data-bs-toggle="tab">
@@ -20,32 +24,11 @@
                         </li>
                     </ul>
                     <div class="tab-pane fade show active" id="register">
-                        <form action="#" class="banner-form">
+                        <!-- Register Domain API -->
+                        <form id="registerApi" class="banner-form">
                             <div class="banner-input-group">
                                 <div class="banner-input">
-                                    <input type="text" placeholder="Enter Domain Address">
-                                    <select class="select">
-                                        <option value="com" selected>.com</option>
-                                        <option value="net">.net</option>
-                                        <option value="org">.org</option>
-                                        <option value="info">.info</option>
-                                        <option value="store">.store</option>
-                                        <option value="online">.online</option>
-                                    </select>
-                                </div>
-                                <div class="banner-suggest">
-                                    <a href="#">
-                                        <h5>.io <span>- $9.45</span></h5>
-                                    </a>
-                                    <a href="#">
-                                        <h5>.com <span>- $12.76</span></h5>
-                                    </a>
-                                    <a href="#">
-                                        <h5>.net <span>- $10.23</span></h5>
-                                    </a>
-                                    <a href="#">
-                                        <h5>.org <span>- $11.18</span></h5>
-                                    </a>
+                                    <input type="text" id="registerDomain" placeholder="Enter Full Domain (e.g. example.com)" required>
                                 </div>
                             </div>
                             <button type="submit" title="Search Domain">
@@ -56,24 +39,11 @@
                     </div>
 
                     <div class="tab-pane fade" id="transfer">
-                        <form action="#" class="banner-form">
+                        <!-- Transfer Domain API -->
+                        <form id="transferApi" class="banner-form">
                             <div class="banner-input-group">
                                 <div class="banner-input">
-                                    <input type="text" placeholder="Enter Your Domain to Transfer">
-                                </div>
-                                <div class="banner-suggest">
-                                    <a href="#">
-                                        <h5>.io <span>- $9.45</span></h5>
-                                    </a>
-                                    <a href="#">
-                                        <h5>.com <span>- $12.76</span></h5>
-                                    </a>
-                                    <a href="#">
-                                        <h5>.net <span>- $10.23</span></h5>
-                                    </a>
-                                    <a href="#">
-                                        <h5>.org <span>- $11.18</span></h5>
-                                    </a>
+                                    <input type="text" id="transferDomain" placeholder="Enter Your Domain to Transfer" required>
                                 </div>
                             </div>
                             <button type="submit" title="Transfer Domain">
@@ -85,10 +55,72 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="banner-image">
-                    <img src="{{ asset('images/partials/01.png') }}" alt="hero">
+                <div class="banner-image" id="bannerImage">
+                    <!-- Image will be shown here -->
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    let registerApiUrl = '';
+    let transferApiUrl = '';
+
+    // Load hero section data
+    $(document).ready(function() {
+        $.ajax({
+            url: '/hero-section',
+            type: 'GET',
+            success: function(response) {
+                let heroData = response.heroData;
+
+                // Set content
+                $('#bannerImage').html(`<img src="${heroData.image || '/images/partials/default.jpg'}" alt="Hero Image">`);
+                $('#bannerTitle').html(heroData.title);
+                $('#bannerDescription').html(heroData.description);
+
+                // Store API URLs for later use
+                registerApiUrl = heroData.register_api;
+                transferApiUrl = heroData.transfer_api;
+            },
+            error: function() {
+                $('#bannerImage').html('<p>Error loading image.</p>');
+            }
+        });
+    });
+
+    // Transfer form
+    document.getElementById('transferApi').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const domain = document.getElementById('transferDomain').value.trim();
+        if (domain === '') {
+            alert('Please enter a domain to transfer.');
+            return;
+        }
+        if (!transferApiUrl) {
+            alert('Transfer API URL not loaded.');
+            return;
+        }
+
+        const url = `${transferApiUrl}${encodeURIComponent(domain)}`;
+        window.open(url, '_blank');
+    });
+
+    // Register form
+    document.getElementById('registerApi').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const domain = document.getElementById('registerDomain').value.trim();
+        if (domain === '') {
+            alert('Please enter a domain name.');
+            return;
+        }
+        if (!registerApiUrl) {
+            alert('Register API URL not loaded.');
+            return;
+        }
+
+        const url = `${registerApiUrl}${encodeURIComponent(domain)}`;
+        window.open(url, '_blank');
+    });
+</script>
