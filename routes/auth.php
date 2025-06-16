@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SupportTicketController;
 use App\Http\Controllers\Admin\HostingPackageController;
 use App\Http\Controllers\Admin\PartialsSettingController;
+use App\Http\Controllers\Admin\SettingController;
 
 Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/dashboard',        [DashboardController::class,        'DashboardPage'])->name('dashboardPage');
@@ -28,5 +29,9 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::controller(PartialsSettingController::class)->group(function () {
         Route::get('/page-settings',                'pagesList')->name('pagesList');
         Route::post('/page-settings',               'pagesUpdate')->name('pagesUpdate');
+    });
+    Route::controller(SettingController::class)->group(function () {
+        Route::get('/settings',                    'settingsPage')->name('settingsPage');
+        Route::post('/settings',                   'settingsUpdate')->name('settingsUpdate');
     });
 });

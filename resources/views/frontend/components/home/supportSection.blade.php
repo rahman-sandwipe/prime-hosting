@@ -50,7 +50,7 @@
                 $('#supportDescription').text(data.description || 'Lorem ipsum dolor sit amet.');
 
                 // Phone and email
-                $('.support-info li:nth-child(1)').html(`<span>For Call</span><a href="tel:${data.phone || '0209-4215-5596'}">'+'${data.phone || '+880-00000-00000'}</a>`);
+                $('.support-info li:nth-child(1)').html(`<span>For Call</span><a href="tel:+${data.phone || '0209-4215-5596'}">+${data.phone || '+880-00000-00000'}</a>`);
                 $('.support-info li:nth-child(2)').html(`<span>For Mail</span><a href="mailto:${data.email || 'info@domhost.com'}">${data.email || 'info@domhost.com'}</a>`);
 
                 // Buttons

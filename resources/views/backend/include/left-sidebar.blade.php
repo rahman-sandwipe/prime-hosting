@@ -50,7 +50,35 @@
                         <span>Hosting Packages</span>
                     </a>
                 </li>
-                
+                <!-- Settings -->
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="fa fa-cog"></i>
+                        <span>Settings </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('settingsPage') }}?site-settings">Site Settings</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('settingsPage') }}?contact-infos">Contact Infos</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('settingsPage') }}?social-links">Social Links</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('settingsPage') }}?mail-configs">Mail Configs</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('settingsPage') }}?seo-settings">SEO Settings</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('settingsPage') }}?payment-gateways">Payment Gateways</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Partial for the pages settings -->
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fa fa-headset"></i>

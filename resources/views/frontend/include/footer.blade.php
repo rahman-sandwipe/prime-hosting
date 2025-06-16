@@ -1,7 +1,7 @@
 
 <footer class="footer-part">
     <div class="container">
-        <div class="row">
+        <div class="row footer-devider">
             <div class="col-lg-4">
                 <div class="footer-brand">
                     <a href="#"><img src="images/logo-white.png" alt="logo"></a>
@@ -16,68 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 footer-devider">
-            <div class="col">
-                <div class="footer-widget">
-                    <h5>domain</h5>
-                    <ul>
-                        <li><a href="#">domain search</a></li>
-                        <li><a href="#">domain transfer</a></li>
-                        <li><a href="#">personal domain</a></li>
-                        <li><a href="#">premium DNS</a></li>
-                        <li><a href="#">Free DNS</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="footer-widget">
-                    <h5>hosting</h5>
-                    <ul>
-                        <li><a href="#">VPS hosting</a></li>
-                        <li><a href="#">cloud hosting</a></li>
-                        <li><a href="#">shared hosting</a></li>
-                        <li><a href="#">dedicated hosting</a></li>
-                        <li><a href="#">reseller hosting</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="footer-widget">
-                    <h5>support</h5>
-                    <ul>
-                        <li><a href="#">repost abuse</a></li>
-                        <li><a href="#">submit ticket</a></li>
-                        <li><a href="#">live chat</a></li>
-                        <li><a href="#">blogs</a></li>
-                        <li><a href="#">faqs</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="footer-widget">
-                    <h5>terms</h5>
-                    <ul>
-                        <li><a href="#">terms of Condition</a></li>
-                        <li><a href="#">copyright notice</a></li>
-                        <li><a href="#">support system</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">easy return</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="footer-widget">
-                    <h5>company</h5>
-                    <ul>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">contact form</a></li>
-                        <li><a href="#">testimonials</a></li>
-                        <li><a href="#">our partner</a></li>
-                        <li><a href="#">career</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-sm-6 col-lg-4">
                 <div class="footer-action">

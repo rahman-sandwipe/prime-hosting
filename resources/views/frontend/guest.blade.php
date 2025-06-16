@@ -20,14 +20,10 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        @include('frontend.include.top-header')
         @include('frontend.include.header')
-
 		@yield('content')
-
         <!-- Footer -->
         @include('frontend.include.footer')
-
 		<!-- Scripts -->
         <script src="{{ asset('frontend/vendor/bootstrap/jquery-1.12.4.min.js') }}"></script>
 		<script src="{{ asset('frontend/vendor/bootstrap/popper.min.js') }}"></script>
