@@ -19,7 +19,4 @@ class MailConfig extends Model
     ];
 
     public $timestamps = false;
-    protected $hidden = [
-        'mail_password',
-    ];
 }

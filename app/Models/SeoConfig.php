@@ -15,12 +15,10 @@ class SeoConfig extends Model
         'meta_author',
         'robots',
         'canonical_url',
-        'twitter_card',
         'structured_data',
         'google_analytics_id',
         'bing_webmaster_id',
         'yandex_verification_code',
-        'facebook_pixel_id',
         'google_tag_manager_id',
         'google_tag_manager_no_script'
     ];
