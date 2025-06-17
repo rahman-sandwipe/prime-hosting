@@ -27,7 +27,7 @@
         </div>
 
         <div class="card-body">
-            @include('backend.components.settings.mailConfigsForm')
+            @include('backend.components.settings.mailSettingsForm')
         </div>
     </div>
 </section>

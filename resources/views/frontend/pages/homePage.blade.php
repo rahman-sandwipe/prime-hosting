@@ -3,11 +3,11 @@
 @section('content')
     <main>
         @include('frontend.components.home.heroSection')
-		@include('frontend.components.home.aboutSection')
 		@include('frontend.components.home.serviceSection')
 		@include('frontend.components.home.serverSection')
 		@include('frontend.components.home.featureSection')
 		@include('frontend.components.home.supportSection')
+		@include('frontend.components.home.aboutSection')
 		{{-- @include('frontend.components.home.reviewSection') --}}
 
 		<section class="call2action-part">

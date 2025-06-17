@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('role', ['admin', 'customer'])->default('customer');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('password');
-            $table->rememberToken();
+            $table->boolean('remember')->default(false)->nullable();
             $table->timestamps();
         });
 

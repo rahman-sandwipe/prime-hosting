@@ -68,7 +68,7 @@
                             <a href="{{ route('settingsPage') }}?social-links">Social Links</a>
                         </li>
                         <li>
-                            <a href="{{ route('settingsPage') }}?mail-configs">Mail Configs</a>
+                            <a href="{{ route('settingsPage') }}?mail-settings">Mail Settings</a>
                         </li>
                         <li>
                             <a href="{{ route('settingsPage') }}?seo-settings">SEO Settings</a>

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\SeoConfig;
-use App\Models\MailConfig;
 use App\Models\SocialLink;
 use App\Models\ContactInfo;
+use App\Models\MailSetting;
+use App\Models\SiteSetting;
 use Illuminate\Http\Request;
 use App\Models\PeymentGeteway;
 use App\Http\Controllers\Controller;
-use App\Models\SiteSetting;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -39,9 +39,9 @@ class SettingController extends Controller
         }
 
         // Show Mail Configurations Page
-        elseif ($request->has('mail-configs')) {
-            $data['mail'] = MailConfig::firstOrNew([]);
-            return view('backend.pages.settings.mailConfigsPage', $data);
+        elseif ($request->has('mail-settings')) {
+            $data['mail'] = MailSetting::firstOrNew([]);
+            return view('backend.pages.settings.mailSettingsPage', $data);
         }
 
         // Show SEO Settings Page
@@ -158,20 +158,23 @@ class SettingController extends Controller
             $msg = ['success' => 'Social links updated successfully.'];
         }
 
-        // Mail Configuration Update
-        elseif ($request->has('mail-configs')) {
-            $mail = MailConfig::firstOrNew([]);
-            $mail->fill($request->only([
-                'mail_driver',
-                'mail_host',
-                'mail_port',
-                'mail_username',
-                'mail_password',
-                'mail_from_name',
-                'mail_from_email'
-            ]));
-            $mail->save();
-            $msg = ['success' => 'Mail configurations updated successfully.'];
+        // Mail Settings Update
+        elseif ($request->has('mail-settings')) {
+            $validated = $request->validate([
+                'mailer'        => 'required|string',
+                'host'          => 'required|string',
+                'port'          => 'required|numeric',
+                'username'      => 'required|string',
+                'password'      => 'required|string',
+                'encryption'    => 'nullable|string',
+                'from_address'  => 'required|email',
+                'from_name'     => 'required|string',
+            ]);
+
+            $mailSetting = MailSetting::firstOrNew([]);
+            $mailSetting->fill($validated);
+            $mailSetting->save();
+            $msg = ['success' => 'Mail settings updated successfully.'];
         }
 
         // SEO Settings Update

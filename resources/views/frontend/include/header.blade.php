@@ -48,15 +48,6 @@
                 <div class="header-profile">
                     <a href="{{ route('login') }}" class="btn btn-light br-5">Clientarea</a>
                 </div>
-                <div class="header-widget">
-                    <a href="cartlist.html" class="header-cart">
-                        <i class="flaticon-shopping-bag"></i>
-                        <sup>0</sup>
-                    </a>
-                    <button class="header-menu">
-                        <i class="flaticon-align-right"></i>
-                    </button>
-                </div>
             </div>
         </div>
     </div>

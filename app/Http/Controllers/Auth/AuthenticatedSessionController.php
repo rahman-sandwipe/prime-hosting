@@ -16,7 +16,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('frontend.auth.login');
+        return view('auth.login', [
+            'title' => __('Login'),
+            'description' => __('Please enter your credentials to login.'),
+        ]);
     }
 
     /**

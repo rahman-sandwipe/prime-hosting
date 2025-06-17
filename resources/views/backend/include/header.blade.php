@@ -93,8 +93,13 @@
 
                 <div class="dropdown-divider"></div>
 
-                <!-- item-->
-                <a href="{{ route('logout') }}" class="dropdown-item notify-item">
+                <!-- Logout link as a form -->
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+
+                <a href="#" class="dropdown-item notify-item"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fe-log-out"></i>
                     <span>Logout</span>
                 </a>
