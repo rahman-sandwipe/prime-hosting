@@ -46,7 +46,7 @@
 
             <div class="header-widget-group">
                 <div class="header-profile">
-                    <a href="{{ route('login') }}" class="btn btn-light br-5">Clientarea</a>
+                    <a href="{{ route('login') }}" class="btn btn-light">Clientarea</a>
                 </div>
             </div>
         </div>
