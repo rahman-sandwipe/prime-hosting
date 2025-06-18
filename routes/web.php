@@ -10,7 +10,7 @@ use App\Http\Controllers\User\ServiceController;
 use App\Http\Controllers\User\SettingsController;
 use App\Http\Controllers\User\AttributeController;
 use App\Http\Controllers\Auth\ResetPasswordController;
-use App\Http\Controllers\User\SupportTicketController;
+use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\User\HostingPackageController;
@@ -41,9 +41,9 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 /* | ---------- |User Support Section| ---------- | */
-Route::controller(SupportTicketController::class)->group(function () {
-    Route::get('/support-ticket', 'supportTicketPage')->name('support.page');
-    Route::post('/support-ticket', 'store')->name('support.store');
+Route::controller(ContactController::class)->group(function () {
+    Route::get('/contact-us', 'contactPage')->name('contact.page');
+    Route::post('/contact-us', 'contactForm')->name('contact.form');
 });
 
 /* | ---------- |Feature Section| ---------- | */

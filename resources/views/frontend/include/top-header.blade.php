@@ -2,15 +2,15 @@
     <div class="container">
         <div class="header-top-content">
             <div class="header-info-group">
-                <a href="#" class="header-info">
+                <a href="tel:{{ config('app.contact_info.phone_number') }}" class="header-info">
                     <i class="fas fa-phone-alt"></i>
-                    <span>0209-4215-5596</span>
+                    <span>{{ config('app.contact_info.contact_number') }}</span>
                 </a>
                 <a href="#" class="header-info">
                     <i class="fas fa-envelope"></i>
-                    <span>info@domhost.com</span>
+                    <span>{{ config('app.contact_info.contact_email') }}</span>
                 </a>
-                <a href="#" class="header-info">
+                <a href="/contact-us" class="header-info">
                     <i class="fas fa-comments"></i>
                     <span>Live Chatting</span>
                 </a>
@@ -20,14 +20,14 @@
                 <div class="header-select">
                     <i class="fas fa-flag"></i>
                     <select class="select">
-                        <option value="en" selected>english - USA</option>
-                        <option value="bn">bangali - BD</option>
+                        <option value="en" selected>English - USA</option>
+                        <option value="bn">Bangali - BD</option>
                     </select>
                 </div>
                 <div class="header-select">
                     <i class="fas fa-globe"></i>
                     <select class="select">
-                        <option value="en" selected>doller - $USD</option>
+                        <option value="en" selected>Doller - $USD</option>
                         <option value="bn">Take - ৳BD</option>
                     </select>
                 </div>

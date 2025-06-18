@@ -40,7 +40,7 @@
                     
                     <li class="navbar-item"><a href="#" class="navbar-link">Help</a></li>
                     <li class="navbar-item"><a href="" class="navbar-link">Blogs</a></li>
-                    <li class="navbar-item"><a href="" class="navbar-link">contact us</a></li>
+                    <li class="navbar-item"><a href="{{ route('contact.page') }}" class="navbar-link">contact us</a></li>
                 </ul>
             </nav>
 

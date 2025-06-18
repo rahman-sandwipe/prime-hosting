@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/fonts/flaticon/flaticon.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/fonts/fontawesome/fontawesome.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/vendor/slickslider/slick.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/vendor/venobox/venobox.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/vendor/niceselect/niceselect.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/vendor/bootstrap/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">

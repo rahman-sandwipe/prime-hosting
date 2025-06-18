@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Models\ContactInfo;
+use App\Models\MailSetting;
+use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
-use App\Models\SiteSetting;
-use App\Models\MailSetting;
+use Illuminate\Support\ServiceProvider;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -65,6 +67,21 @@ class AppServiceProvider extends ServiceProvider
                 Config::set('mail.mailers.smtp.timeout', $mailSetting->timeout ?? null);
                 Config::set('mail.from.address', $mailSetting->from_address);
                 Config::set('mail.from.name', $mailSetting->from_name);
+            }
+        }
+
+        // Set the default contact info if it exists
+        if (Schema::hasTable('contact_infos')) {
+            $contactInfo = ContactInfo::first();
+            if ($contactInfo) {
+                Config::set('app.contact_info', [
+                    'contact_email' => $contactInfo->contact_email,
+                    'support_email' => $contactInfo->support_email,
+                    'contact_number' => $contactInfo->contact_phone,
+                    'whatsapp_number' => $contactInfo->whatsapp_number,
+                    'address' => $contactInfo->address,
+                    'google_map' => $contactInfo->map_iframe,
+                ]);
             }
         }
     }

@@ -86,8 +86,8 @@ class SettingController extends Controller
                 }
                 $file = $request->file('light_logo');
                 $name = 'light_logo_' . time() . '.' . $file->getClientOriginalExtension();
-                $path = 'images/partials/' . $name;
-                $image = $manager->read($file)->resize(200, 80, function ($c) {
+                $path = '/images/partials/' . $name;
+                $image = $manager->read($file)->resize(200, 70, function ($c) {
                     $c->aspectRatio();
                 });
                 $image->save(public_path($path));
@@ -101,8 +101,8 @@ class SettingController extends Controller
                 }
                 $file = $request->file('dark_logo');
                 $name = 'dark_logo_' . time() . '.' . $file->getClientOriginalExtension();
-                $path = 'images/partials/' . $name;
-                $image = $manager->read($file)->resize(200, 80, function ($c) {
+                $path = '/images/partials/' . $name;
+                $image = $manager->read($file)->resize(200, 70, function ($c) {
                     $c->aspectRatio();
                 });
                 $image->save(public_path($path));
@@ -116,7 +116,7 @@ class SettingController extends Controller
                 }
                 $file = $request->file('favicon');
                 $name = 'favicon_' . time() . '.' . $file->getClientOriginalExtension();
-                $path = 'images/partials/' . $name;
+                $path = '/images/partials/' . $name;
                 $image = $manager->read($file)->resize(62, 62, function ($c) {
                     $c->aspectRatio();
                 });

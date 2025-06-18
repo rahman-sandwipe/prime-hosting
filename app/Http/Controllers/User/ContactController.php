@@ -9,34 +9,28 @@ use App\Http\Controllers\Controller;
 use App\Models\ContactInfo;
 use Illuminate\Support\Facades\Auth;
 
-class SupportTicketController extends Controller
+class ContactController extends Controller
 {
-    public function supportTicketPage() {
-        $data['supportData'] = [
-            'title' => 'Support Ticket',
-            'description' => 'Create a support ticket for assistance.',
-            'keywords' => 'support, ticket, help, assistance',
-        ];
+    public function contactPage() {
         $data['contact'] = ContactInfo::first();
-        return view('frontend.pages.supportPage', $data);
+        return view('frontend.pages.contactPage', $data);
     }
 
 
-    public function store(Request $request)
+    public function contactForm(Request $request)
     {
         $request->validate([
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
             'name' => 'required_without:user|string|max:255',
             'email' => 'required_without:user|email|max:255',
-            'phone' => 'required_without:user|string|max:20',
         ]);
 
         $ticket = SupportTicket::create([
             'user_id' => Auth::check() ? Auth::user()->id : null,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
+            'name' => Auth::check() ? Auth::user()->name : $request->name,
+            'email' => Auth::check() ? Auth::user()->email : $request->email,
+            'phone' => Auth::check() ? Auth::user()->phone : $request->phone,
             'subject' => $request->subject,
             'message' => $request->message,
         ]);
