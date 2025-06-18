@@ -10,6 +10,7 @@ use App\Http\Controllers\User\ServiceController;
 use App\Http\Controllers\User\SettingsController;
 use App\Http\Controllers\User\AttributeController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\User\SupportTicketController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\User\HostingPackageController;
@@ -30,6 +31,7 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [ResetPasswordController::class, 'store'])->name('password.update');
 });
 
+
 /* | ---------- |User Home Section| ---------- | */
 Route::controller(HomeController::class)->group(function () {
     Route::get('/',                 'homePage')->name('homePage');
@@ -38,6 +40,13 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/support-section',  'supportSection');
 });
 
+/* | ---------- |User Support Section| ---------- | */
+Route::controller(SupportTicketController::class)->group(function () {
+    Route::get('/support-ticket', 'supportTicketPage')->name('support.page');
+    Route::post('/support-ticket', 'store')->name('support.store');
+});
+
+/* | ---------- |Feature Section| ---------- | */
 Route::controller(FeatureController::class)->group(function () {
     Route::get('/feature-list',                   'featureList')->name('featureList');
 });
